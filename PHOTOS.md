@@ -23,9 +23,13 @@ site loads fast.
 
 ### Home (`index.html`)
 - `home-hero.jpg` ......... main photo at the top
-- `home-1.jpg` ............ "Volunteers in action"
-- `home-2.jpg` ............ "A multilingual event"
-- `home-3.jpg` ............ "Our team together"
+Scrollable gallery (add as many as you like, in this order):
+- `home-gallery-1.jpg`
+- `home-gallery-2.jpg`
+- `home-gallery-3.jpg`
+- `home-gallery-4.jpg`
+- `home-gallery-5.jpg`
+- `home-gallery-6.jpg`
 
 ### Our Work (`our-work.html`), one per event
 - `event-st-clements.jpg`
@@ -65,6 +69,13 @@ Members:
 - `person-james-yang.jpg`
 - `person-stefan-goldberg.jpg`
 - `person-henry-amberg.jpg`
+
+Four more member slots are waiting for names. Once you tell me the names I will
+rename these; for now their files are:
+- `person-member-19.jpg`
+- `person-member-20.jpg`
+- `person-member-21.jpg`
+- `person-member-22.jpg`
 
 ## Adding a new event or person later
 

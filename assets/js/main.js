@@ -111,6 +111,20 @@
     img.addEventListener("load", function () { if (img.naturalWidth === 0) hidePhoto(img); });
   });
 
+  /* ---------- Scrollable photo gallery ---------- */
+  document.querySelectorAll("[data-gallery]").forEach(function (gallery) {
+    var track = gallery.querySelector(".gallery__track");
+    var prev = gallery.querySelector("[data-gallery-prev]");
+    var next = gallery.querySelector("[data-gallery-next]");
+    if (!track) return;
+    function step() {
+      var card = track.querySelector(".placeholder");
+      return card ? card.offsetWidth + 20 : track.clientWidth * 0.8;
+    }
+    if (prev) prev.addEventListener("click", function () { track.scrollBy({ left: -step(), behavior: "smooth" }); });
+    if (next) next.addEventListener("click", function () { track.scrollBy({ left: step(), behavior: "smooth" }); });
+  });
+
   /* ---------- Footer year ---------- */
   var yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
