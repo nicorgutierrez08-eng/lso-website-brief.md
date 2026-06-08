@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -65,8 +65,9 @@
         </div>
 
         <div class="hero__media" data-load="3">
-          <div class="placeholder" role="img" aria-label="Photo: LSO volunteers working together at a community event">
-            <p class="placeholder__label">LSO volunteers at a community event</p>
+          <div class="placeholder">
+            <p class="placeholder__label">LSO volunteers at a community event <span class="placeholder__file">assets/img/home-hero.jpg</span></p>
+            <img class="placeholder__img" src="assets/img/home-hero.jpg" alt="LSO volunteers working together at a community event" />
           </div>
           <div class="hero__badge" aria-hidden="true">
             <b>30+</b>
@@ -100,6 +101,27 @@
         <div class="split__main prose" data-reveal data-delay="1">
           <p>Our high school volunteers use their fluency in English, Spanish, and Chinese to serve local NYC communities. We host multilingual events, offer real-time translation assistance, and partner with local organizations so everyone has access to the resources they need to thrive.</p>
           <p class="card__link"><a class="link-arrow" href="our-work.html">Meet our partner organizations <span aria-hidden="true">&rarr;</span></a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PHOTO STRIP ============ -->
+    <section class="section section--tight" aria-label="Photos from our work">
+      <div class="wrap">
+        <span class="kicker" data-reveal>In the community</span>
+        <div class="photo-strip">
+          <div class="placeholder" data-reveal>
+            <p class="placeholder__label">Volunteers in action <span class="placeholder__file">assets/img/home-1.jpg</span></p>
+            <img class="placeholder__img" src="assets/img/home-1.jpg" alt="LSO volunteers helping at a community event" />
+          </div>
+          <div class="placeholder" data-reveal data-delay="1">
+            <p class="placeholder__label">A multilingual event <span class="placeholder__file">assets/img/home-2.jpg</span></p>
+            <img class="placeholder__img" src="assets/img/home-2.jpg" alt="A multilingual LSO event with community members" />
+          </div>
+          <div class="placeholder" data-reveal data-delay="2">
+            <p class="placeholder__label">Our team together <span class="placeholder__file">assets/img/home-3.jpg</span></p>
+            <img class="placeholder__img" src="assets/img/home-3.jpg" alt="The LSO team together" />
+          </div>
         </div>
       </div>
     </section>

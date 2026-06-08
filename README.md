@@ -41,10 +41,10 @@ Direction: **"Clear Civic."** Clean, light, and trustworthy.
   primary accent (buttons, links, navigation), green is the secondary
   highlight (the impact numbers and hover states), and red is reserved for
   the language-separator dots, a small nod to the Chinese half of the work.
-- **Type:** Fraunces (a characterful high-contrast serif) for display, paired
-  with Public Sans (the US government's open civic typeface) for body. Noto
-  Sans SC and Noto Serif SC are in the font stack so the 中文 in the tagline
-  renders cleanly. Fonts load from Google Fonts.
+- **Type:** Newsreader (a clean, readable serif) for headings, paired with
+  Public Sans (the US government's open civic typeface) for body. Noto Sans SC
+  and Noto Serif SC are in the font stack so the 中文 in the tagline renders
+  cleanly. Fonts load from Google Fonts.
 - **Motif:** the `•` separator from the trilingual tagline recurs as a
   connective dot throughout the site.
 - **Motion:** the hero settles in on load, sections fade up on scroll, and
@@ -56,9 +56,9 @@ Direction: **"Clear Civic."** Clean, light, and trustworthy.
 ## Photo placeholders
 
 Real photos have not been added yet. Every spot for one is a clearly labeled
-placeholder describing the photo that belongs there (hero, each partner card,
-and so on). To add a real photo, replace the placeholder `<div>` with an
-`<img>` pointing at a file in `assets/img/`, keeping the existing `alt` text.
+box that shows the exact file name it is waiting for. Drop a photo with that
+name into `assets/img/` and it appears automatically, no code editing needed.
+See **PHOTOS.md** for the step by step guide and the full list of file names.
 
 ## Adding Spanish and Chinese later
 

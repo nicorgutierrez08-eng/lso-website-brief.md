@@ -98,6 +98,19 @@
     applyLanguage(saved && I18N[saved] ? saved : "en");
   }
 
+  /* ---------- Photo slots ----------
+     Each photo slot contains a labeled placeholder plus a real <img> that
+     points at a file in assets/img/. If that file has not been added yet,
+     the image fails to load and we hide it so the labeled placeholder (with
+     the exact file name to upload) shows instead. Add the file with the name
+     shown on the slot and the photo appears automatically. */
+  function hidePhoto(img) { img.style.display = "none"; }
+  document.querySelectorAll(".placeholder__img").forEach(function (img) {
+    if (img.complete && img.naturalWidth === 0) hidePhoto(img);
+    img.addEventListener("error", function () { hidePhoto(img); });
+    img.addEventListener("load", function () { if (img.naturalWidth === 0) hidePhoto(img); });
+  });
+
   /* ---------- Footer year ---------- */
   var yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
