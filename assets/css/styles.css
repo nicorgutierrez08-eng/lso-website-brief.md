@@ -23,8 +23,8 @@
   --blue:         #1F66C7;   /* primary accent: buttons, links, nav */
   --blue-deep:    #154E9E;
   --blue-light:   #7FB2E8;   /* light blue accent on dark backgrounds */
-  --green:        #1F9E73;   /* secondary accent */
-  --green-light:  #34C08C;   /* green highlight on dark backgrounds */
+  --green:        #1F8A66;   /* secondary accent (muted) */
+  --green-light:  #4DAE88;   /* soft green highlight on dark backgrounds */
   --red:          #D62828;   /* the language-separator dot motif */
   --red-deep:     #B11E1E;
 
@@ -33,7 +33,7 @@
   --paper-deep:   var(--bg-alt);
   --ink:          #11203A;   /* near-black navy text */
   --ink-soft:     #455062;   /* grey body text */
-  --ink-faint:    #7C8798;   /* light grey */
+  --ink-faint:    #5E6A7B;   /* readable grey for small meta text */
   --vermilion:    var(--blue);
   --vermilion-deep:var(--blue-deep);
   --marigold:     var(--green-light);
@@ -375,9 +375,9 @@ p { max-width: 64ch; }
 
 .section--ink { background: var(--ink); color: var(--paper); }
 .section--ink h2, .section--ink h3 { color: var(--paper); }
-.section--ink p { color: color-mix(in srgb, var(--paper) 82%, transparent); }
-.section--ink .kicker { color: var(--marigold); }
-.section--ink .kicker::before { background: var(--marigold); }
+.section--ink p { color: color-mix(in srgb, var(--paper) 90%, transparent); }
+.section--ink .kicker { color: var(--blue-light); }
+.section--ink .kicker::before { background: var(--blue-light); }
 
 .section--paper-deep { background: var(--paper-deep); }
 
@@ -521,20 +521,20 @@ p { max-width: 64ch; }
 }
 .footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; }
 .footer__brand .brand__name { color: var(--paper); font-size: 1.4rem; }
-.footer__brand p { color: color-mix(in srgb, var(--paper) 75%, transparent); margin-top: 0.7rem; max-width: 38ch; font-size: 0.95rem; }
+.footer__brand p { color: color-mix(in srgb, var(--paper) 86%, transparent); margin-top: 0.7rem; max-width: 38ch; font-size: 0.95rem; }
 .footer__brand .trilingual-mini { margin-top: 1rem; font-family: var(--font-display); font-size: 1.1rem; }
 .footer__brand .trilingual-mini .dot { color: var(--red); }
 .footer__col h4 {
   font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.14em;
-  color: var(--marigold); margin-bottom: 1rem;
+  color: var(--blue-light); margin-bottom: 1rem;
 }
 .footer__col ul { list-style: none; display: grid; gap: 0.6rem; }
-.footer__col a { color: color-mix(in srgb, var(--paper) 85%, transparent); text-decoration: none; transition: color 0.2s var(--ease); }
-.footer__col a:hover { color: var(--marigold); }
+.footer__col a { color: color-mix(in srgb, var(--paper) 88%, transparent); text-decoration: none; transition: color 0.2s var(--ease); }
+.footer__col a:hover { color: var(--blue-light); }
 .footer__bottom {
   margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(251,246,236,0.18);
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;
-  font-size: 0.85rem; color: color-mix(in srgb, var(--paper) 65%, transparent);
+  font-size: 0.85rem; color: color-mix(in srgb, var(--paper) 78%, transparent);
 }
 @media (max-width: 760px) { .footer__top { grid-template-columns: 1fr; gap: 2rem; } }
 
