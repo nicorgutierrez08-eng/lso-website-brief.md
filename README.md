@@ -34,12 +34,13 @@ build step and no JavaScript dependency for its structure.
 
 ## Design choices
 
-Direction: **"Civic Letterpress."** Warm, editorial, and civic rather than
-the typical tech-nonprofit look.
+Direction: **"Clear Civic."** Clean, light, and trustworthy.
 
-- **Palette:** warm cream paper, deep midnight ink as the dominant color, a
-  sharp vermilion accent (which also nods to the Chinese half of the work),
-  and a marigold highlight for the impact numbers.
+- **Palette:** white and light blue-grey backgrounds with near-black navy
+  text. Navy is the dominant dark (footer and impact band), blue is the
+  primary accent (buttons, links, navigation), green is the secondary
+  highlight (the impact numbers and hover states), and red is reserved for
+  the language-separator dots, a small nod to the Chinese half of the work.
 - **Type:** Fraunces (a characterful high-contrast serif) for display, paired
   with Public Sans (the US government's open civic typeface) for body. Noto
   Sans SC and Noto Serif SC are in the font stack so the 中文 in the tagline

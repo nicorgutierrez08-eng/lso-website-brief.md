@@ -1,25 +1,45 @@
 /* =========================================================================
    Language Service Organization
-   Aesthetic: "Civic Letterpress"
-   - Warm cream paper, deep midnight ink, vermilion accent, marigold highlight
+   Aesthetic: "Clear Civic"
+   - White and light blue-grey backgrounds, near-black navy text
+   - Navy as the dominant dark, blue as the primary accent, green as the
+     secondary highlight, red reserved for the language-separator dots
    - Fraunces (display serif) + Public Sans (civic body) + Noto SC (CJK)
    - The trilingual tagline's bullet becomes a recurring connective motif
    ========================================================================= */
 
-/* ---------- Design tokens ---------- */
+/* ---------- Design tokens ----------
+   Note: a few legacy variable names are kept (--paper, --vermilion, --marigold)
+   so the rest of the stylesheet stays stable. Their VALUES now carry the new
+   palette: --vermilion is the primary blue, --marigold is the green highlight,
+   --paper is white. Plain-named tokens below are preferred for new code.       */
 :root {
-  /* Color */
-  --paper:        #FBF6EC;
-  --paper-deep:   #F3EAD8;
-  --ink:          #152232;
-  --ink-soft:     #3C4A5B;
-  --ink-faint:    #6B7686;
-  --vermilion:    #D84727;
-  --vermilion-deep:#B5361A;
-  --marigold:     #E8A13A;
-  --sage:         #2C5E5A;
-  --line:         #DCD2BE;
-  --paper-card:   #FFFCF6;
+  /* Palette */
+  --white:        #FFFFFF;
+  --bg-alt:       #EFF4FA;   /* light blue-grey alternating sections */
+  --bg-tint:      #E1ECF7;   /* light blue tint (placeholders, badges) */
+  --navy:         #14315B;   /* dominant dark: footer, impact band */
+  --navy-deep:    #0E2342;
+  --blue:         #1F66C7;   /* primary accent: buttons, links, nav */
+  --blue-deep:    #154E9E;
+  --blue-light:   #7FB2E8;   /* light blue accent on dark backgrounds */
+  --green:        #1F9E73;   /* secondary accent */
+  --green-light:  #34C08C;   /* green highlight on dark backgrounds */
+  --red:          #D62828;   /* the language-separator dot motif */
+  --red-deep:     #B11E1E;
+
+  /* Legacy aliases mapped to the new palette */
+  --paper:        var(--white);
+  --paper-deep:   var(--bg-alt);
+  --ink:          #11203A;   /* near-black navy text */
+  --ink-soft:     #455062;   /* grey body text */
+  --ink-faint:    #7C8798;   /* light grey */
+  --vermilion:    var(--blue);
+  --vermilion-deep:var(--blue-deep);
+  --marigold:     var(--green-light);
+  --sage:         var(--green);
+  --line:         #DBE3EE;
+  --paper-card:   #FFFFFF;
 
   /* Type */
   --font-display: "Fraunces", "Noto Serif SC", Georgia, "Times New Roman", serif;
@@ -60,10 +80,10 @@ body {
   font-size: clamp(1rem, 0.96rem + 0.2vw, 1.075rem);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  /* Faint paper grain via layered gradients */
+  /* Faint tint via layered gradients (light blue + green) */
   background-image:
-    radial-gradient(circle at 20% 0%, rgba(232, 161, 58, 0.05), transparent 45%),
-    radial-gradient(circle at 100% 100%, rgba(44, 94, 90, 0.05), transparent 40%);
+    radial-gradient(circle at 20% 0%, rgba(31, 102, 199, 0.05), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(31, 158, 115, 0.05), transparent 40%);
   background-attachment: fixed;
 }
 
@@ -102,8 +122,8 @@ p { max-width: 64ch; }
   display: inline-block;
 }
 
-/* The recurring connective dot motif */
-.dot { color: var(--vermilion); font-weight: 700; padding: 0 0.15em; }
+/* The recurring connective dot motif (the language separator, in red) */
+.dot { color: var(--red); font-weight: 700; padding: 0 0.15em; }
 
 /* ---------- Layout helpers ---------- */
 .wrap { width: min(100% - 2rem, var(--maxw)); margin-inline: auto; padding-inline: max(0px, calc((var(--gutter) - 1rem))); }
@@ -143,7 +163,7 @@ p { max-width: 64ch; }
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease), box-shadow 0.25s var(--ease);
-  box-shadow: 0 10px 22px -14px rgba(216, 71, 39, 0.9);
+  box-shadow: 0 10px 22px -14px rgba(31, 102, 199, 0.65);
 }
 .btn:hover { transform: translateY(-2px); background: var(--vermilion-deep); border-color: var(--vermilion-deep); }
 .btn .arrow { transition: transform 0.25s var(--ease); }
@@ -287,7 +307,7 @@ p { max-width: 64ch; }
   display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2em 0.6em;
 }
 .trilingual span { white-space: nowrap; }
-.trilingual .dot { color: var(--marigold); }
+.trilingual .dot { color: var(--red); }
 .trilingual .place { color: var(--ink-faint); font-family: var(--font-body); font-size: 0.5em; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
 
 .hero__media { position: relative; }
@@ -465,7 +485,7 @@ p { max-width: 64ch; }
   padding: 0.7rem 0; border-bottom: 1px solid var(--line);
   display: flex; align-items: center; gap: 0.6rem; font-weight: 500;
 }
-.member-list li::before { content: "•"; color: var(--vermilion); font-weight: 700; }
+.member-list li::before { content: "•"; color: var(--red); font-weight: 700; }
 
 /* Email chips (Get Involved) */
 .email-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
@@ -503,7 +523,7 @@ p { max-width: 64ch; }
 .footer__brand .brand__name { color: var(--paper); font-size: 1.4rem; }
 .footer__brand p { color: color-mix(in srgb, var(--paper) 75%, transparent); margin-top: 0.7rem; max-width: 38ch; font-size: 0.95rem; }
 .footer__brand .trilingual-mini { margin-top: 1rem; font-family: var(--font-display); font-size: 1.1rem; }
-.footer__brand .trilingual-mini .dot { color: var(--marigold); }
+.footer__brand .trilingual-mini .dot { color: var(--red); }
 .footer__col h4 {
   font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.14em;
   color: var(--marigold); margin-bottom: 1rem;
