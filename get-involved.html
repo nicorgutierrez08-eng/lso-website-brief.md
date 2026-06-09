@@ -45,18 +45,24 @@
   </header>
 
   <main id="main">
-    <!-- ============ PAGE HEAD ============ -->
-    <section class="page-head">
-      <div class="wrap">
-        <span class="kicker" data-reveal>Get involved</span>
-        <h1 data-reveal data-delay="1">Join our team.</h1>
-        <p class="lede" data-reveal data-delay="2">We are always looking for passionate high schoolers in NYC who speak English, Spanish, or Chinese. If you want to use your language skills to give back to the community, here is how to start.</p>
+    <!-- ============ HERO BANNER (full-width, shared component) ============ -->
+    <section class="hero-banner" aria-label="Join the Team">
+      <div class="placeholder hero-banner__bg" aria-hidden="true">
+        <p class="placeholder__label">Our team together as a group <span class="placeholder__file">assets/img/get-involved-banner.jpg</span></p>
+        <img class="placeholder__img" src="assets/img/get-involved-banner.jpg" alt="" />
+      </div>
+      <div class="hero-banner__overlay" aria-hidden="true"></div>
+      <div class="wrap hero-banner__inner">
+        <h1 class="hero-banner__name" data-load="2">Join the Team</h1>
+        <p class="hero-banner__tag" data-load="3">Use your languages to give back to NYC.</p>
       </div>
     </section>
 
     <!-- ============ STEPS ============ -->
     <section class="section section--tight" aria-label="How to join">
-      <div class="wrap split">
+      <div class="wrap">
+        <p class="lede" data-reveal style="margin-bottom: 2.5rem; max-width: 62ch;">We are always looking for passionate high schoolers in NYC who speak English, Spanish, or Chinese. If you want to use your language skills to give back to the community, here is how to start.</p>
+        <div class="split">
         <div class="split__aside" data-reveal>
           <span class="kicker">Three steps</span>
           <h2>From hello to your first event.</h2>
@@ -89,6 +95,7 @@
               </div>
             </li>
           </ol>
+        </div>
         </div>
       </div>
     </section>

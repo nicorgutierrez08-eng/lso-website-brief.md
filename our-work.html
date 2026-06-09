@@ -45,18 +45,23 @@
   </header>
 
   <main id="main">
-    <!-- ============ PAGE HEAD ============ -->
-    <section class="page-head">
-      <div class="wrap">
-        <span class="kicker" data-reveal>Our work</span>
-        <h1 data-reveal data-delay="1">A hands-on impact, across the boroughs.</h1>
-        <p class="lede" data-reveal data-delay="2">See how our volunteers are making a hands-on impact across the boroughs.</p>
+    <!-- ============ HERO BANNER (full-width, shared component) ============ -->
+    <section class="hero-banner" aria-label="Our Work">
+      <div class="placeholder hero-banner__bg" aria-hidden="true">
+        <p class="placeholder__label">Our volunteers working at a service event <span class="placeholder__file">assets/img/work-banner.jpg</span></p>
+        <img class="placeholder__img" src="assets/img/work-banner.jpg" alt="" />
+      </div>
+      <div class="hero-banner__overlay" aria-hidden="true"></div>
+      <div class="wrap hero-banner__inner">
+        <h1 class="hero-banner__name" data-load="2">Our Work</h1>
+        <p class="hero-banner__tag" data-load="3">Hands-on impact across the boroughs.</p>
       </div>
     </section>
 
     <!-- ============ PARTNER CARDS ============ -->
     <section class="section section--tight" aria-label="Partner organizations">
       <div class="wrap">
+        <p class="lede" data-reveal style="margin-bottom: 2.5rem;">See how our volunteers are making a hands-on impact across the boroughs.</p>
         <div class="grid-cards">
 
           <article class="card" data-reveal>

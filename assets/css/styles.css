@@ -345,6 +345,12 @@ p { max-width: 64ch; }
 }
 .hero-banner__badge b { font-family: var(--font-display); font-size: 1.25rem; color: var(--marigold); }
 
+/* Shorter banner on small screens, text still scales via clamp */
+@media (max-width: 640px) {
+  .hero-banner { min-height: clamp(320px, 56vh, 440px); }
+  .hero-banner__name { max-width: 100%; }
+}
+
 /* Intro statement below the banner */
 .intro__title { max-width: 20ch; }
 .intro .lede { margin-top: 1.3rem; }
