@@ -23,7 +23,7 @@ site loads fast.
 
 ## The full list of photo names
 
-There are 44 photo spots. You do not need to fill them all at once. Add the ones
+There are 45 photo spots. You do not need to fill them all at once. Add the ones
 you have, and the rest stay as labeled placeholders until you do.
 
 ### Home (`index.html`)
@@ -49,7 +49,8 @@ One per event:
 
 ### Get Involved (`get-involved.html`)
 - `get-involved-banner.jpg` .. full-width banner at the top
-- `get-involved.jpg` ......... photo next to the three steps
+- `get-involved.jpg` ......... first photo next to the three steps
+- `get-involved1.jpg` ........ second photo next to the three steps
 
 ### Our People (`our-people.html`)
 - `people-banner.jpg` ........ full-width banner at the top

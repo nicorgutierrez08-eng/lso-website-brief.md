@@ -591,7 +591,7 @@ p { max-width: 64ch; }
 @media (prefers-reduced-motion: reduce) { .gallery__track { scroll-behavior: auto; } }
 
 /* Photo paired with text (Get Involved) */
-.aside-photo { margin-top: 1.5rem; aspect-ratio: 4 / 5; }
+.aside-photo { margin-top: 1.5rem; aspect-ratio: 4 / 3; }
 
 /* =========================================================================
    Footer
