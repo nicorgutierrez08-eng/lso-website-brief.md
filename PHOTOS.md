@@ -8,22 +8,27 @@ so the site never looks broken.
 
 ## The simple steps
 
-1. Get your photo ready as a `.jpg` file. Landscape (wide) works best for event
-   and home photos. Square works best for people photos.
+1. Get your photo ready as a `.jpg` file.
+   - Banner photos: wide / landscape (they span the full width).
+   - Gallery and event photos: landscape works best.
+   - People photos: square works best (they show in a square frame).
 2. Rename the file to match the name shown on the box you want to fill. The name
-   must match exactly, all lowercase, with dashes, ending in `.jpg`.
+   must match exactly: all lowercase, dashes between words, ending in `.jpg`.
 3. On GitHub, open the `assets/img` folder, click **Add file -> Upload files**,
-   drag your renamed photo in, and commit. (Or upload several at once.)
+   drag your renamed photo in, and commit. You can upload many at once.
 4. Refresh the site. The photo is now there.
 
-Tip: keep photos reasonably sized (around 1600 pixels wide is plenty) so the
+Tip: keep photos a reasonable size (around 1600 pixels wide is plenty) so the
 site loads fast.
 
 ## The full list of photo names
 
+There are 44 photo spots. You do not need to fill them all at once. Add the ones
+you have, and the rest stay as labeled placeholders until you do.
+
 ### Home (`index.html`)
-- `home-hero.jpg` ......... main photo at the top
-Scrollable gallery (add as many as you like, in this order):
+- `home-hero.jpg` ............ full-width banner at the top
+Scrollable gallery (the "In the community" row):
 - `home-gallery-1.jpg`
 - `home-gallery-2.jpg`
 - `home-gallery-3.jpg`
@@ -31,7 +36,9 @@ Scrollable gallery (add as many as you like, in this order):
 - `home-gallery-5.jpg`
 - `home-gallery-6.jpg`
 
-### Our Work (`our-work.html`), one per event
+### Our Work (`our-work.html`)
+- `work-banner.jpg` .......... full-width banner at the top
+One per event:
 - `event-st-clements.jpg`
 - `event-new-sanctuary.jpg`
 - `event-jasa.jpg`
@@ -41,9 +48,12 @@ Scrollable gallery (add as many as you like, in this order):
 - `event-kidsknowrights.jpg`
 
 ### Get Involved (`get-involved.html`)
-- `get-involved.jpg` ...... photo next to the three steps
+- `get-involved-banner.jpg` .. full-width banner at the top
+- `get-involved.jpg` ......... photo next to the three steps
 
-### Our People (`our-people.html`), one per person
+### Our People (`our-people.html`)
+- `people-banner.jpg` ........ full-width banner at the top
+
 Leadership:
 - `person-nicolas-gutierrez.jpg`
 - `person-shane-davidoff.jpg`
