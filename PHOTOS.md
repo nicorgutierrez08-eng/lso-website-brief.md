@@ -54,35 +54,38 @@ One per event:
 ### Our People (`our-people.html`)
 - `people-banner.jpg` ........ full-width banner at the top
 
+People photos are named by first name (square photos work best). Where two
+people share a first name, the first letter of the last name is added.
+
 Leadership:
-- `person-nicolas-gutierrez.jpg`
-- `person-shane-davidoff.jpg`
-- `person-noah-memmi.jpg`
-- `person-raunak-sondhi.jpg`
-- `person-grey-egeth.jpg`
-- `person-eva-alavez.jpg`
+- Nicolas Gutierrez ... `nicolas.jpg`
+- Shane Davidoff ...... `shane.jpg`
+- Noah Memmi .......... `noah.jpg`
+- Raunak Sondhi ....... `raunak.jpg`
+- Grey Egeth .......... `greye.jpg`
+- Eva Alavez .......... `eva.jpg`
 
 Members:
-- `person-luca-grimeh.jpg`
-- `person-ian-massaro.jpg`
-- `person-dylan-boester.jpg`
-- `person-shaw-mcgrath.jpg`
-- `person-oliver-carbery.jpg`
-- `person-khoren-andrews.jpg`
-- `person-maxfield-pillimer.jpg`
-- `person-john-stavropolous.jpg`
-- `person-alec-stavropolous.jpg`
-- `person-perk-tracy.jpg`
-- `person-miles-devine.jpg`
-- `person-grey-zittman.jpg`
-- `person-alexandra-dell.jpg`
-- `person-james-yang.jpg`
-- `person-stefan-goldberg.jpg`
-- `person-henry-amberg.jpg`
-- `person-sam-weinstein.jpg`
-- `person-joao-pedro-de-brito.jpg`
-- `person-lucas-goldberg.jpg`
-- `person-lukas-grimminger.jpg`
+- Luca Grimeh ......... `luca.jpg`
+- Ian Massaro ......... `ian.jpg`
+- Dylan Boester ....... `dylan.jpg`
+- Shaw McGrath ........ `shaw.jpg`
+- Oliver Carbery ...... `oliver.jpg`
+- Khoren Andrews ...... `khoren.jpg`
+- Maxfield Pillimer ... `maxfield.jpg`
+- John Stavropolous ... `john.jpg`
+- Alec Stavropolous ... `alec.jpg`
+- Perk Tracy .......... `perk.jpg`
+- Miles Devine ........ `miles.jpg`
+- Grey Zittman ........ `greyz.jpg`
+- Alexandra Dell ...... `alexandra.jpg`
+- James Yang .......... `james.jpg`
+- Stefan Goldberg ..... `stefan.jpg`
+- Henry Amberg ........ `henry.jpg`
+- Sam Weinstein ....... `sam.jpg`
+- Joao Pedro de Brito . `pedro.jpg`
+- Lucas Goldberg ...... `lucas.jpg`
+- Lukas Grimminger .... `lukas.jpg`
 
 ## Adding a new event or person later
 
