@@ -47,16 +47,16 @@ Scrollable gallery (add as many as you like, in this order):
 Leadership:
 - `person-nicolas-gutierrez.jpg`
 - `person-shane-davidoff.jpg`
+- `person-noah-memmi.jpg`
+- `person-raunak-sondhi.jpg`
 - `person-grey-egeth.jpg`
 - `person-eva-alavez.jpg`
 
 Members:
 - `person-luca-grimeh.jpg`
-- `person-noah-memmi.jpg`
 - `person-ian-massaro.jpg`
 - `person-dylan-boester.jpg`
 - `person-shaw-mcgrath.jpg`
-- `person-raunak-sondhi.jpg`
 - `person-oliver-carbery.jpg`
 - `person-khoren-andrews.jpg`
 - `person-maxfield-pillimer.jpg`
@@ -69,13 +69,10 @@ Members:
 - `person-james-yang.jpg`
 - `person-stefan-goldberg.jpg`
 - `person-henry-amberg.jpg`
-
-Four more member slots are waiting for names. Once you tell me the names I will
-rename these; for now their files are:
-- `person-member-19.jpg`
-- `person-member-20.jpg`
-- `person-member-21.jpg`
-- `person-member-22.jpg`
+- `person-sam-weinstein.jpg`
+- `person-joao-pedro-de-brito.jpg`
+- `person-lucas-goldberg.jpg`
+- `person-lukas-grimminger.jpg`
 
 ## Adding a new event or person later
 
