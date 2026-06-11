@@ -44,7 +44,7 @@ can open up the extra slots.
 
 ## The full list of photo names
 
-There are 71 photo spots. You do not need to fill them all at once. Add the ones
+There are 74 photo spots. You do not need to fill them all at once. Add the ones
 you have, and the rest stay as labeled placeholders until you do.
 
 ### Home (`index.html`)
@@ -78,6 +78,9 @@ are the photos it slides through:
   `event-moca4.jpg`, `event-moca5.jpg`
 - MintBox (3): `event-mintbox.jpg`, `event-mintbox1.jpg`, `event-mintbox2.jpg`
 - KidsKnowRights (1): `event-kidsknowrights.jpg`
+- Hudson Guild (1): `event-hudson-guild.jpg`
+- Elliott-Chelsea Houses (1): `event-elliott-chelsea.jpg`
+- Holy Apostles Soup Kitchen (1): `event-holy-apostles.jpg`
 
 ### Get Involved (`get-involved.html`)
 - `get-involved-banner.jpg` .. full-width banner at the top
