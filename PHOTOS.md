@@ -21,9 +21,30 @@ so the site never looks broken.
 Tip: keep photos a reasonable size (around 1600 pixels wide is plenty) so the
 site loads fast.
 
+## Sliding photos (several photos in one spot)
+
+Some spots are now **sliders**: a single frame that slides through several
+photos with arrows, dots, and a gentle auto-advance. Each photo in a slider has
+its own file name following a simple pattern: the base name, then the same name
+with `1`, `2`, `3`, and so on added before `.jpg`. For example, St. Clement's
+holds nine photos:
+
+```
+event-st-clements.jpg    (1st photo)
+event-st-clements1.jpg   (2nd photo)
+event-st-clements2.jpg   (3rd photo)
+   ...up to...
+event-st-clements8.jpg   (9th photo)
+```
+
+Add as many or as few as you like. Any photo you have not uploaded yet just
+shows its labeled grey box inside the slider, so nothing ever looks broken. To
+add even more later, keep counting up (`...9.jpg`, `...10.jpg`) and tell me so I
+can open up the extra slots.
+
 ## The full list of photo names
 
-There are 45 photo spots. You do not need to fill them all at once. Add the ones
+There are 73 photo spots. You do not need to fill them all at once. Add the ones
 you have, and the rest stay as labeled placeholders until you do.
 
 ### Home (`index.html`)
@@ -38,19 +59,34 @@ Scrollable gallery (the "In the community" row):
 
 ### Our Work (`our-work.html`)
 - `work-banner.jpg` .......... full-width banner at the top
-One per event:
-- `event-st-clements.jpg`
-- `event-new-sanctuary.jpg`
-- `event-jasa.jpg`
-- `event-st-peters.jpg`
-- `event-moca.jpg`
-- `event-mintbox.jpg`
-- `event-kidsknowrights.jpg`
+
+Each event is a slider (see "Sliding photos" above). The numbered names below
+are the photos it slides through:
+
+- St. Clement's Food Pantry (9): `event-st-clements.jpg`, `event-st-clements1.jpg`,
+  `event-st-clements2.jpg`, `event-st-clements3.jpg`, `event-st-clements4.jpg`,
+  `event-st-clements5.jpg`, `event-st-clements6.jpg`, `event-st-clements7.jpg`,
+  `event-st-clements8.jpg`
+- New Sanctuary Coalition (3): `event-new-sanctuary.jpg`, `event-new-sanctuary1.jpg`,
+  `event-new-sanctuary2.jpg`
+- JASA (5): `event-jasa.jpg`, `event-jasa1.jpg`, `event-jasa2.jpg`, `event-jasa3.jpg`,
+  `event-jasa4.jpg`
+- St. Peter's Church (6): `event-st-peters.jpg`, `event-st-peters1.jpg`,
+  `event-st-peters2.jpg`, `event-st-peters3.jpg`, `event-st-peters4.jpg`,
+  `event-st-peters5.jpg`
+- MOCA (6): `event-moca.jpg`, `event-moca1.jpg`, `event-moca2.jpg`, `event-moca3.jpg`,
+  `event-moca4.jpg`, `event-moca5.jpg`
+- MintBox (3): `event-mintbox.jpg`, `event-mintbox1.jpg`, `event-mintbox2.jpg`
+- Hudson Guild (1): `event-hudson-guild.jpg`
+- Elliott-Chelsea Houses (1): `event-elliott-chelsea.jpg`
+- Holy Apostles Soup Kitchen (1): `event-holy-apostles.jpg`
 
 ### Get Involved (`get-involved.html`)
 - `get-involved-banner.jpg` .. full-width banner at the top
-- `get-involved.jpg` ......... first photo next to the three steps
-- `get-involved1.jpg` ........ second photo next to the three steps
+
+The two photos next to the three steps are a slider (2):
+- `get-involved.jpg`
+- `get-involved1.jpg`
 
 ### Our People (`our-people.html`)
 - `people-banner.jpg` ........ full-width banner at the top

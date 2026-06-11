@@ -396,11 +396,24 @@ p { max-width: 64ch; }
   font-size: 0.72rem; font-weight: 600; color: var(--blue);
   letter-spacing: 0; word-break: break-all;
 }
-/* The real photo: covers the placeholder once it loads, hidden by JS if missing */
+/* The real photo: covers the placeholder once it loads, hidden by JS if missing.
+   DEFAULT = object-fit: cover, so any photo (landscape, portrait, or square)
+   fills its tile and crops to the centre. The tile's shape is set by its
+   container, so every tile in a row stays the same size no matter the original
+   image. To shift the crop on one photo, add inline object-position to it. */
 .placeholder__img {
   position: absolute; inset: 0; z-index: 2;
-  width: 100%; height: 100%; object-fit: cover; display: block;
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; display: block;
   background: var(--bg-alt);
+}
+/* OVERRIDE: show a photo in FULL with no cropping (object-fit: contain).
+   Add the class `is-full` to that one <img>, e.g.
+     <img class="placeholder__img is-full" src="assets/img/event-jasa1.jpg" alt="..." />
+   The whole image is shown, letterboxed on a soft matte where it doesn't fill
+   the tile. Use it for photos where cropping would cut off something important. */
+.placeholder__img.is-full {
+  object-fit: contain;
+  background: var(--bg-tint);
 }
 
 /* =========================================================================
@@ -503,6 +516,8 @@ p { max-width: 64ch; }
 .step p { color: var(--ink-soft); }
 
 /* People */
+:root { --avatar-size: 132px; } /* one place to change EVERY avatar's diameter */
+
 .people-grid {
   display: grid; gap: 1.25rem;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -512,15 +527,42 @@ p { max-width: 64ch; }
 }
 .person {
   background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--radius);
-  overflow: hidden; display: flex; flex-direction: column;
+  overflow: hidden; display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 1.5rem 0.9rem 0.4rem;
   transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 .person:hover { border-color: var(--marigold); transform: translateY(-3px); box-shadow: var(--shadow); }
+
+/* Uniform circular avatars.
+   Every avatar is exactly --avatar-size across, no matter the original photo's
+   shape or size. object-fit: cover fills the circle and crops to the centre;
+   border-radius: 50% makes it round. To fine-tune ONE person's framing, add an
+   inline object-position to that single <img> (see the note at the end). */
 .person__photo {
+  flex: 0 0 auto;
+  width: var(--avatar-size); height: var(--avatar-size);
   aspect-ratio: 1 / 1; min-height: 0;
-  border: 0; border-bottom: 1px solid var(--line); border-radius: 0;
+  border: 1px solid var(--line); border-radius: 50%;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.3s var(--ease);
 }
-.person__info { padding: 1rem 1.1rem 1.2rem; }
+.person:hover .person__photo { border-color: var(--marigold); }
+.person__photo::before { display: none; } /* hide the little camera glyph inside the circle */
+.person__photo .placeholder__img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 50%; /* default: centre crop */
+  border-radius: 50%;
+}
+/* Empty-state label (shown only until a photo is added): centred and compact
+   so it reads inside the round frame instead of a bottom bar. */
+.person__photo .placeholder__label {
+  position: static; width: auto; border-top: 0; background: transparent;
+  padding: 0 0.6rem; text-align: center; font-size: 0.6rem; line-height: 1.3;
+}
+.person__photo .placeholder__file { font-size: 0.56rem; margin-top: 0.15rem; }
+
+.person__info { padding: 0.9rem 0.5rem 1.2rem; }
 .person h3 { font-size: 1.15rem; }
 .person__role { color: var(--vermilion); font-weight: 600; font-size: 0.88rem; margin-top: 0.15rem; }
 .person__email {
@@ -562,6 +604,29 @@ p { max-width: 64ch; }
 .photo-strip .placeholder { aspect-ratio: 4 / 3; min-height: 0; }
 @media (max-width: 760px) { .photo-strip { grid-template-columns: 1fr; } }
 
+/* =========================================================================
+   Reusable responsive photo grid (use for ANY new multi-photo section)
+   Drop a <div class="photo-grid"> around any number of .placeholder tiles and
+   they auto-arrange into even columns that get fewer on narrow screens. Every
+   tile is the same size and shape (square by default), photos fill via
+   object-fit: cover, with consistent rounded corners and spacing — one designed
+   gallery, not mismatched images. Works for any photo you add later.
+   Variants: add `photo-grid--wide` for 4:3 tiles, `photo-grid--small` for more,
+   smaller tiles. Tag any single photo with `is-full` to show it uncropped. */
+.photo-grid {
+  display: grid; gap: clamp(0.75rem, 2vw, 1.25rem);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.photo-grid .placeholder {
+  aspect-ratio: 1 / 1; min-height: 0;
+  border-radius: var(--radius); overflow: hidden;
+}
+.photo-grid--wide .placeholder { aspect-ratio: 4 / 3; }
+.photo-grid--small { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+@media (max-width: 520px) {
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* Scrollable photo gallery (Home) */
 .gallery { margin-top: 2rem; }
 .gallery__head {
@@ -592,6 +657,52 @@ p { max-width: 64ch; }
 
 /* Photo paired with text (Get Involved) */
 .aside-photo { margin-top: 1.5rem; aspect-ratio: 4 / 3; }
+
+/* =========================================================================
+   Photo slider (sliding photos: many photos in one spot)
+   One slide shows at a time; arrows, dots, swipe and gentle autoplay move
+   between them. Each slide is a normal labeled placeholder, so any photo not
+   yet uploaded simply shows its grey "Photo: filename" box and nothing breaks.
+   ========================================================================= */
+.slider { position: relative; overflow: hidden; }
+.slider__track {
+  display: flex; flex-wrap: nowrap;
+  transition: transform 0.55s var(--ease);
+  will-change: transform;
+}
+.slider__track > .placeholder {
+  flex: 0 0 100%; width: 100%;
+  aspect-ratio: 4 / 3; min-height: 0;
+}
+@media (prefers-reduced-motion: reduce) { .slider__track { transition: none; } }
+
+.slider__btn {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 6;
+  width: 38px; height: 38px; border-radius: 999px; border: 0;
+  background: color-mix(in srgb, var(--ink) 55%, transparent); color: var(--paper);
+  cursor: pointer; font-size: 1.4rem; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.2s var(--ease), background 0.2s var(--ease);
+}
+.slider:hover .slider__btn, .slider:focus-within .slider__btn { opacity: 1; }
+.slider__btn:hover { background: var(--ink); }
+.slider__btn:focus-visible { opacity: 1; outline: 3px solid var(--paper); outline-offset: 2px; }
+.slider__btn--prev { left: 0.6rem; }
+.slider__btn--next { right: 0.6rem; }
+
+.slider__dots {
+  position: absolute; left: 0; right: 0; bottom: 0.6rem; z-index: 6;
+  display: flex; gap: 0.4rem; justify-content: center; flex-wrap: wrap; padding: 0 1rem;
+}
+.slider__dot {
+  width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; cursor: pointer;
+  background: color-mix(in srgb, var(--paper) 55%, transparent);
+  box-shadow: 0 0 0 1px rgba(17, 32, 58, 0.35);
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.slider__dot[aria-current="true"] { background: var(--paper); transform: scale(1.3); }
+/* On touch devices there is no hover, so keep the arrows gently visible */
+@media (hover: none) { .slider__btn { opacity: 0.85; } }
 
 /* =========================================================================
    Footer
