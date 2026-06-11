@@ -125,6 +125,88 @@
     if (next) next.addEventListener("click", function () { track.scrollBy({ left: step(), behavior: "smooth" }); });
   });
 
+  /* ---------- Photo sliders (sliding photos) ----------
+     A [data-slider] shows one labeled placeholder at a time and slides
+     between them. Works with any number of slides. Controls: prev/next
+     arrows, clickable dots, touch swipe, and gentle autoplay that pauses on
+     hover/focus, when off-screen, and when the user prefers reduced motion. */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("[data-slider]").forEach(function (slider, sIndex) {
+    var track = slider.querySelector(".slider__track");
+    if (!track) return;
+    var slides = Array.prototype.slice.call(track.querySelectorAll(".placeholder"));
+    if (slides.length < 2) return; // a single photo has nothing to slide
+
+    var prevBtn = slider.querySelector("[data-slider-prev]");
+    var nextBtn = slider.querySelector("[data-slider-next]");
+    var dotsWrap = slider.querySelector("[data-slider-dots]");
+    var index = 0;
+    var dots = [];
+    var timer = null;
+    var onScreen = false;
+
+    if (dotsWrap) {
+      slides.forEach(function (_, i) {
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "slider__dot";
+        dot.setAttribute("aria-label", "Show photo " + (i + 1) + " of " + slides.length);
+        dot.addEventListener("click", function () { go(i); restart(); });
+        dotsWrap.appendChild(dot);
+        dots.push(dot);
+      });
+    }
+
+    function go(i) {
+      index = (i % slides.length + slides.length) % slides.length;
+      track.style.transform = "translateX(" + (-index * 100) + "%)";
+      dots.forEach(function (d, di) { d.setAttribute("aria-current", String(di === index)); });
+    }
+
+    function stop() { if (timer) { clearTimeout(timer); timer = null; } }
+    function play() {
+      if (reduceMotion || timer || !onScreen) return;
+      // Stagger each slider slightly so the cards do not all flip in unison.
+      timer = setTimeout(function step() {
+        go(index + 1);
+        timer = setTimeout(step, 5000);
+      }, 5000 + sIndex * 400);
+    }
+    function restart() { stop(); play(); }
+
+    if (prevBtn) prevBtn.addEventListener("click", function () { go(index - 1); restart(); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { go(index + 1); restart(); });
+
+    slider.addEventListener("mouseenter", stop);
+    slider.addEventListener("mouseleave", play);
+    slider.addEventListener("focusin", stop);
+    slider.addEventListener("focusout", play);
+
+    // Touch swipe
+    var startX = null;
+    track.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; stop(); }, { passive: true });
+    track.addEventListener("touchend", function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) { go(index + (dx < 0 ? 1 : -1)); }
+      startX = null;
+      play();
+    }, { passive: true });
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          onScreen = e.isIntersecting;
+          if (onScreen) play(); else stop();
+        });
+      }, { threshold: 0.25 }).observe(slider);
+    } else {
+      onScreen = true; play();
+    }
+
+    go(0);
+  });
+
   /* ---------- Impact numbers count up ---------- */
   var counters = document.querySelectorAll("[data-count]");
   function fmt(n) { return Math.round(n).toLocaleString("en-US"); }
