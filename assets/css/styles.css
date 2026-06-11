@@ -396,11 +396,24 @@ p { max-width: 64ch; }
   font-size: 0.72rem; font-weight: 600; color: var(--blue);
   letter-spacing: 0; word-break: break-all;
 }
-/* The real photo: covers the placeholder once it loads, hidden by JS if missing */
+/* The real photo: covers the placeholder once it loads, hidden by JS if missing.
+   DEFAULT = object-fit: cover, so any photo (landscape, portrait, or square)
+   fills its tile and crops to the centre. The tile's shape is set by its
+   container, so every tile in a row stays the same size no matter the original
+   image. To shift the crop on one photo, add inline object-position to it. */
 .placeholder__img {
   position: absolute; inset: 0; z-index: 2;
-  width: 100%; height: 100%; object-fit: cover; display: block;
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; display: block;
   background: var(--bg-alt);
+}
+/* OVERRIDE: show a photo in FULL with no cropping (object-fit: contain).
+   Add the class `is-full` to that one <img>, e.g.
+     <img class="placeholder__img is-full" src="assets/img/event-jasa1.jpg" alt="..." />
+   The whole image is shown, letterboxed on a soft matte where it doesn't fill
+   the tile. Use it for photos where cropping would cut off something important. */
+.placeholder__img.is-full {
+  object-fit: contain;
+  background: var(--bg-tint);
 }
 
 /* =========================================================================
@@ -590,6 +603,29 @@ p { max-width: 64ch; }
 }
 .photo-strip .placeholder { aspect-ratio: 4 / 3; min-height: 0; }
 @media (max-width: 760px) { .photo-strip { grid-template-columns: 1fr; } }
+
+/* =========================================================================
+   Reusable responsive photo grid (use for ANY new multi-photo section)
+   Drop a <div class="photo-grid"> around any number of .placeholder tiles and
+   they auto-arrange into even columns that get fewer on narrow screens. Every
+   tile is the same size and shape (square by default), photos fill via
+   object-fit: cover, with consistent rounded corners and spacing — one designed
+   gallery, not mismatched images. Works for any photo you add later.
+   Variants: add `photo-grid--wide` for 4:3 tiles, `photo-grid--small` for more,
+   smaller tiles. Tag any single photo with `is-full` to show it uncropped. */
+.photo-grid {
+  display: grid; gap: clamp(0.75rem, 2vw, 1.25rem);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.photo-grid .placeholder {
+  aspect-ratio: 1 / 1; min-height: 0;
+  border-radius: var(--radius); overflow: hidden;
+}
+.photo-grid--wide .placeholder { aspect-ratio: 4 / 3; }
+.photo-grid--small { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+@media (max-width: 520px) {
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+}
 
 /* Scrollable photo gallery (Home) */
 .gallery { margin-top: 2rem; }
