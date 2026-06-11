@@ -503,6 +503,8 @@ p { max-width: 64ch; }
 .step p { color: var(--ink-soft); }
 
 /* People */
+:root { --avatar-size: 132px; } /* one place to change EVERY avatar's diameter */
+
 .people-grid {
   display: grid; gap: 1.25rem;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -512,15 +514,42 @@ p { max-width: 64ch; }
 }
 .person {
   background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--radius);
-  overflow: hidden; display: flex; flex-direction: column;
+  overflow: hidden; display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 1.5rem 0.9rem 0.4rem;
   transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 .person:hover { border-color: var(--marigold); transform: translateY(-3px); box-shadow: var(--shadow); }
+
+/* Uniform circular avatars.
+   Every avatar is exactly --avatar-size across, no matter the original photo's
+   shape or size. object-fit: cover fills the circle and crops to the centre;
+   border-radius: 50% makes it round. To fine-tune ONE person's framing, add an
+   inline object-position to that single <img> (see the note at the end). */
 .person__photo {
+  flex: 0 0 auto;
+  width: var(--avatar-size); height: var(--avatar-size);
   aspect-ratio: 1 / 1; min-height: 0;
-  border: 0; border-bottom: 1px solid var(--line); border-radius: 0;
+  border: 1px solid var(--line); border-radius: 50%;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.3s var(--ease);
 }
-.person__info { padding: 1rem 1.1rem 1.2rem; }
+.person:hover .person__photo { border-color: var(--marigold); }
+.person__photo::before { display: none; } /* hide the little camera glyph inside the circle */
+.person__photo .placeholder__img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 50%; /* default: centre crop */
+  border-radius: 50%;
+}
+/* Empty-state label (shown only until a photo is added): centred and compact
+   so it reads inside the round frame instead of a bottom bar. */
+.person__photo .placeholder__label {
+  position: static; width: auto; border-top: 0; background: transparent;
+  padding: 0 0.6rem; text-align: center; font-size: 0.6rem; line-height: 1.3;
+}
+.person__photo .placeholder__file { font-size: 0.56rem; margin-top: 0.15rem; }
+
+.person__info { padding: 0.9rem 0.5rem 1.2rem; }
 .person h3 { font-size: 1.15rem; }
 .person__role { color: var(--vermilion); font-weight: 600; font-size: 0.88rem; margin-top: 0.15rem; }
 .person__email {
