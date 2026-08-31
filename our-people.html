@@ -6,10 +6,62 @@
   <title>Our People | Language Service Organization</title>
   <meta name="description" content="Meet the students behind the Language Service Organization, a student-led nonprofit at Avenues NYC: our leadership, faculty advisor, and member volunteers." />
 
+  <!-- Canonical URL: the exact host + path GitHub Pages serves this page at -->
+  <link rel="canonical" href="https://languageserviceclub.com/our-people.html" />
+  <!-- Google Search Console verification (HTML-tag method). The head is static, so
+       Google sees this without running JS. TODO: replace REPLACE_WITH_GSC_TOKEN with the
+       exact content value GSC gives you under "HTML tag", then keep this tag permanently. -->
+  <meta name="google-site-verification" content="REPLACE_WITH_GSC_TOKEN" />
+
+  <!-- Open Graph (link previews on Facebook, LinkedIn, iMessage, Slack, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Language Service Organization" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Our People | Language Service Organization" />
+  <meta property="og:description" content="Meet the students behind the Language Service Organization, a student-led nonprofit at Avenues NYC: our leadership, faculty advisor, and member volunteers." />
+  <meta property="og:url" content="https://languageserviceclub.com/our-people.html" />
+  <meta property="og:image" content="https://languageserviceclub.com/assets/img/people-banner.jpg" />
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our People | Language Service Organization" />
+  <meta name="twitter:description" content="Meet the students behind the Language Service Organization, a student-led nonprofit at Avenues NYC: our leadership, faculty advisor, and member volunteers." />
+  <meta name="twitter:image" content="https://languageserviceclub.com/assets/img/people-banner.jpg" />
+
+  <!-- Structured data: the organization (same entity across every page) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Language Service Organization",
+    "alternateName": "LSO",
+    "url": "https://languageserviceclub.com/",
+    "description": "A student-led nonprofit at Avenues NYC using English, Spanish, and Chinese to serve New York City communities through translation, connection, and support.",
+    "sameAs": [
+      "https://www.linkedin.com/company/language-service-organization/",
+      "https://www.instagram.com/avenueslanguageserviceclub"
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Structured data: founder identity (Person). sameAs omitted until personal
+       profile URLs are provided. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nicolas Gutierrez",
+    "alternateName": ["Nico Gutierrez", "Nico", "Nicolás Gutiérrez"],
+    "jobTitle": "Founder and President",
+    "affiliation": { "@type": "EducationalOrganization", "name": "Avenues: The World School" },
+    "worksFor": { "@type": "Organization", "name": "Language Service Organization" },
+    "homeLocation": { "@type": "Place", "name": "New York City" }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -61,7 +113,7 @@
     <!-- ============ LEADERSHIP ============ -->
     <section class="section section--tight" aria-labelledby="lead-h">
       <div class="wrap">
-        <p class="lede" data-reveal style="margin-bottom: 2.5rem;">A team of high schoolers at Avenues NYC, led by students and supported by faculty, all volunteering their time and language skills.</p>
+        <p class="lede" data-reveal style="margin-bottom: 2.5rem;">Founded by Nicolas Gutierrez and fellow students, we are a team of high schoolers at Avenues in New York City, led by students and supported by faculty, all volunteering their time and language skills.</p>
         <span class="kicker" data-reveal>Leadership</span>
         <h2 id="lead-h" data-reveal>Founders and advisors.</h2>
         <div class="people-grid" style="margin-top:2.5rem;">
@@ -104,18 +156,6 @@
 
           <article class="person" data-reveal data-delay="3">
             <div class="placeholder person__photo">
-              <p class="placeholder__label">Raunak Sondhi <span class="placeholder__file">assets/img/raunak.jpg</span></p>
-              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/raunak.jpg" alt="Raunak Sondhi" />
-            </div>
-            <div class="person__info">
-              <h3>Raunak Sondhi</h3>
-              <p class="person__role">Director of Media</p>
-              <a class="person__email" href="mailto:raunak_sondhi@avenues-ny.org">raunak_sondhi@avenues-ny.org</a>
-            </div>
-          </article>
-
-          <article class="person" data-reveal>
-            <div class="placeholder person__photo">
               <p class="placeholder__label">Grey Egeth <span class="placeholder__file">assets/img/greye.jpg</span></p>
               <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/greye.jpg" alt="Grey Egeth" />
             </div>
@@ -151,10 +191,18 @@
 
           <article class="person" data-reveal>
             <div class="placeholder person__photo">
+              <p class="placeholder__label">Raunak Sondhi <span class="placeholder__file">assets/img/raunak.jpg</span></p>
+              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/raunak.jpg" alt="Raunak Sondhi" />
+            </div>
+            <div class="person__info"><h3>Raunak Sondhi</h3><p class="person__role">Director of Media</p></div>
+          </article>
+
+          <article class="person" data-reveal>
+            <div class="placeholder person__photo">
               <p class="placeholder__label">Luca Grimeh <span class="placeholder__file">assets/img/luca.jpg</span></p>
               <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/luca.jpg" alt="Luca Grimeh" />
             </div>
-            <div class="person__info"><h3>Luca Grimeh</h3><p class="person__role">Member</p></div>
+            <div class="person__info"><h3>Luca Grimeh</h3><p class="person__role">Head of Volunteer Programs</p></div>
           </article>
 
           <article class="person" data-reveal>
@@ -162,7 +210,7 @@
               <p class="placeholder__label">Ian Massaro <span class="placeholder__file">assets/img/ian.jpg</span></p>
               <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/ian.jpg" alt="Ian Massaro" />
             </div>
-            <div class="person__info"><h3>Ian Massaro</h3><p class="person__role">Member</p></div>
+            <div class="person__info"><h3>Ian Massaro</h3><p class="person__role">Assistant Head of Spanish</p></div>
           </article>
 
           <article class="person" data-reveal>
@@ -170,7 +218,7 @@
               <p class="placeholder__label">Dylan Boester <span class="placeholder__file">assets/img/dylan.jpg</span></p>
               <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/dylan.jpg" alt="Dylan Boester" />
             </div>
-            <div class="person__info"><h3>Dylan Boester</h3><p class="person__role">Member</p></div>
+            <div class="person__info"><h3>Dylan Boester</h3><p class="person__role">Treasurer</p></div>
           </article>
 
           <article class="person" data-reveal>
@@ -178,7 +226,7 @@
               <p class="placeholder__label">Shaw McGrath <span class="placeholder__file">assets/img/shaw.jpg</span></p>
               <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/shaw.jpg" alt="Shaw McGrath" />
             </div>
-            <div class="person__info"><h3>Shaw McGrath</h3><p class="person__role">Member</p></div>
+            <div class="person__info"><h3>Shaw McGrath</h3><p class="person__role">Director of Partnerships</p></div>
           </article>
 
           <article class="person" data-reveal>
@@ -194,7 +242,7 @@
               <p class="placeholder__label">Khoren Andrews <span class="placeholder__file">assets/img/khoren.jpg</span></p>
               <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/khoren.jpg" alt="Khoren Andrews" />
             </div>
-            <div class="person__info"><h3>Khoren Andrews</h3><p class="person__role">Member</p></div>
+            <div class="person__info"><h3>Khoren Andrews</h3><p class="person__role">Assistant Head of Volunteer Programs</p></div>
           </article>
 
           <article class="person" data-reveal>
@@ -210,7 +258,7 @@
               <p class="placeholder__label">John Stavropolous <span class="placeholder__file">assets/img/john.jpg</span></p>
               <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/john.jpg" alt="John Stavropolous" />
             </div>
-            <div class="person__info"><h3>John Stavropolous</h3><p class="person__role">Member</p></div>
+            <div class="person__info"><h3>John Stavropolous</h3><p class="person__role">Director of Outreach</p></div>
           </article>
 
           <article class="person" data-reveal>

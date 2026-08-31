@@ -6,6 +6,43 @@
   <title>Language Service Organization | Avenues NYC</title>
   <meta name="description" content="A student-led nonprofit at Avenues NYC using English, Spanish, and Chinese to serve New York City communities through translation, connection, and support." />
 
+  <!-- Canonical URL: the exact host + path GitHub Pages serves this page at -->
+  <link rel="canonical" href="https://languageserviceclub.com/" />
+  <!-- Google Search Console verification (HTML-tag method). The head is static, so
+       Google sees this without running JS. TODO: replace REPLACE_WITH_GSC_TOKEN with the
+       exact content value GSC gives you under "HTML tag", then keep this tag permanently. -->
+  <meta name="google-site-verification" content="REPLACE_WITH_GSC_TOKEN" />
+
+  <!-- Open Graph (link previews on Facebook, LinkedIn, iMessage, Slack, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Language Service Organization" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Language Service Organization | Avenues NYC" />
+  <meta property="og:description" content="A student-led nonprofit at Avenues NYC using English, Spanish, and Chinese to serve New York City communities through translation, connection, and support." />
+  <meta property="og:url" content="https://languageserviceclub.com/" />
+  <meta property="og:image" content="https://languageserviceclub.com/assets/img/home-hero.jpg" />
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Language Service Organization | Avenues NYC" />
+  <meta name="twitter:description" content="A student-led nonprofit at Avenues NYC using English, Spanish, and Chinese to serve New York City communities through translation, connection, and support." />
+  <meta name="twitter:image" content="https://languageserviceclub.com/assets/img/home-hero.jpg" />
+
+  <!-- Structured data: the organization (same entity across every page) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Language Service Organization",
+    "alternateName": "LSO",
+    "url": "https://languageserviceclub.com/",
+    "description": "A student-led nonprofit at Avenues NYC using English, Spanish, and Chinese to serve New York City communities through translation, connection, and support.",
+    "sameAs": [
+      "https://www.linkedin.com/company/language-service-organization/",
+      "https://www.instagram.com/avenueslanguageserviceclub"
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -98,6 +135,47 @@
       </div>
     </section>
 
+    <!-- ============ IMPACT STATS ============ -->
+    <section class="section section--ink" aria-labelledby="impact-h">
+      <div class="wrap">
+        <span class="kicker" data-reveal>Our impact</span>
+        <h2 id="impact-h" data-reveal>Showing up, over and over.</h2>
+        <div class="impact-grid">
+          <div class="stat" data-reveal>
+            <div class="stat__num" data-count="2200" data-suffix="+">2,200+</div>
+            <div class="stat__label">Volunteer hours contributed</div>
+            <p class="stat__desc">Across our weekly programs since January 2025, counting all volunteers.</p>
+          </div>
+          <div class="stat" data-reveal data-delay="1">
+            <div class="stat__num" data-count="85" data-suffix="+">85+</div>
+            <div class="stat__label">Recurring service sessions</div>
+            <p class="stat__desc">Every Saturday at St. Clement's and every Wednesday at New Sanctuary Coalition during the school year.</p>
+          </div>
+          <div class="stat" data-reveal data-delay="2">
+            <div class="stat__num" data-count="30" data-suffix="+">30+</div>
+            <div class="stat__label">Special events and drives</div>
+            <p class="stat__desc">Including JASA senior programming, the MOCA Lunar New Year event, and food, toy, and clothing drives at St. Peter's Church.</p>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat__num" data-count="25">25</div>
+            <div class="stat__label">Student volunteers</div>
+            <p class="stat__desc">High schoolers rotating across our service opportunities.</p>
+          </div>
+          <div class="stat" data-reveal data-delay="1">
+            <div class="stat__num" data-count="15">15</div>
+            <div class="stat__label">Community partners</div>
+            <p class="stat__desc">St. Clement's, New Sanctuary Coalition, JASA, St. Peter's Church, MOCA, MintBox, Hudson Guild, Elliott-Chelsea Houses, Holy Apostles Soup Kitchen, KidsKnowRights, Queens Mutual Aid, Knowledge to Power Catalysts, Youth Today, La Opinión, and SpaceBridge / Visual Echo.</p>
+          </div>
+          <div class="stat" data-reveal data-delay="2">
+            <div class="stat__num" data-count="3">3</div>
+            <div class="stat__label">Languages</div>
+            <p class="stat__desc">English, Spanish, and Chinese.</p>
+          </div>
+        </div>
+        <p class="impact-note" data-reveal>Figures are estimates as of June 2026.</p>
+      </div>
+    </section>
+
     <!-- ============ PHOTO GALLERY (scrollable) ============ -->
     <section class="section section--tight" aria-label="Photos from our work">
       <div class="wrap">
@@ -136,47 +214,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ IMPACT STATS ============ -->
-    <section class="section section--ink" aria-labelledby="impact-h">
-      <div class="wrap">
-        <span class="kicker" data-reveal>Our impact</span>
-        <h2 id="impact-h" data-reveal>Showing up, over and over.</h2>
-        <div class="impact-grid">
-          <div class="stat" data-reveal>
-            <div class="stat__num" data-count="2200" data-suffix="+">2,200+</div>
-            <div class="stat__label">Volunteer hours contributed</div>
-            <p class="stat__desc">Across our weekly programs since January 2025, counting all volunteers.</p>
-          </div>
-          <div class="stat" data-reveal data-delay="1">
-            <div class="stat__num" data-count="85" data-suffix="+">85+</div>
-            <div class="stat__label">Recurring service sessions</div>
-            <p class="stat__desc">Every Saturday at St. Clement's and every Wednesday at New Sanctuary Coalition during the school year.</p>
-          </div>
-          <div class="stat" data-reveal data-delay="2">
-            <div class="stat__num" data-count="30" data-suffix="+">30+</div>
-            <div class="stat__label">Special events and drives</div>
-            <p class="stat__desc">Including JASA senior programming, the MOCA Lunar New Year event, and food, toy, and clothing drives at St. Peter's Church.</p>
-          </div>
-          <div class="stat" data-reveal>
-            <div class="stat__num" data-count="25">25</div>
-            <div class="stat__label">Student volunteers</div>
-            <p class="stat__desc">High schoolers rotating across our service opportunities.</p>
-          </div>
-          <div class="stat" data-reveal data-delay="1">
-            <div class="stat__num" data-count="9">9</div>
-            <div class="stat__label">Community partners</div>
-            <p class="stat__desc">St. Clement's, New Sanctuary Coalition, JASA, St. Peter's Church, MOCA, MintBox, Hudson Guild, Elliott-Chelsea Houses, and Holy Apostles Soup Kitchen.</p>
-          </div>
-          <div class="stat" data-reveal data-delay="2">
-            <div class="stat__num" data-count="3">3</div>
-            <div class="stat__label">Languages</div>
-            <p class="stat__desc">English, Spanish, and Chinese.</p>
-          </div>
-        </div>
-        <p class="impact-note" data-reveal>Figures are estimates as of June 2026.</p>
       </div>
     </section>
 
@@ -222,7 +259,7 @@
       </div>
       <div class="footer__bottom">
         <span>&copy; <span data-year>2026</span> Language Service Organization. All rights reserved.</span>
-        <span>Made by students at Avenues NYC.</span>
+        <span>Made by Nicolas Gutierrez and students at Avenues NYC.</span>
       </div>
     </div>
   </footer>
