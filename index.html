@@ -6,6 +6,43 @@
   <title>Language Service Organization | Avenues NYC</title>
   <meta name="description" content="A student-led nonprofit at Avenues NYC using English, Spanish, and Chinese to serve New York City communities through translation, connection, and support." />
 
+  <!-- Canonical URL: the exact host + path GitHub Pages serves this page at -->
+  <link rel="canonical" href="https://languageserviceclub.com/" />
+  <!-- Google Search Console verification (HTML-tag method). The head is static, so
+       Google sees this without running JS. TODO: replace REPLACE_WITH_GSC_TOKEN with the
+       exact content value GSC gives you under "HTML tag", then keep this tag permanently. -->
+  <meta name="google-site-verification" content="REPLACE_WITH_GSC_TOKEN" />
+
+  <!-- Open Graph (link previews on Facebook, LinkedIn, iMessage, Slack, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Language Service Organization" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Language Service Organization | Avenues NYC" />
+  <meta property="og:description" content="A student-led nonprofit at Avenues NYC using English, Spanish, and Chinese to serve New York City communities through translation, connection, and support." />
+  <meta property="og:url" content="https://languageserviceclub.com/" />
+  <meta property="og:image" content="https://languageserviceclub.com/assets/img/home-hero.jpg" />
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Language Service Organization | Avenues NYC" />
+  <meta name="twitter:description" content="A student-led nonprofit at Avenues NYC using English, Spanish, and Chinese to serve New York City communities through translation, connection, and support." />
+  <meta name="twitter:image" content="https://languageserviceclub.com/assets/img/home-hero.jpg" />
+
+  <!-- Structured data: the organization (same entity across every page) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Language Service Organization",
+    "alternateName": "LSO",
+    "url": "https://languageserviceclub.com/",
+    "description": "A student-led nonprofit at Avenues NYC using English, Spanish, and Chinese to serve New York City communities through translation, connection, and support.",
+    "sameAs": [
+      "https://www.linkedin.com/company/language-service-organization/",
+      "https://www.instagram.com/avenueslanguageserviceclub"
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -98,47 +135,6 @@
       </div>
     </section>
 
-    <!-- ============ PHOTO GALLERY (scrollable) ============ -->
-    <section class="section section--tight" aria-label="Photos from our work">
-      <div class="wrap">
-        <div class="gallery" data-gallery data-reveal>
-          <div class="gallery__head">
-            <span class="kicker">In the community</span>
-            <div class="gallery__controls">
-              <button type="button" class="gallery__btn" data-gallery-prev aria-label="Previous photos"><span aria-hidden="true">&larr;</span></button>
-              <button type="button" class="gallery__btn" data-gallery-next aria-label="Next photos"><span aria-hidden="true">&rarr;</span></button>
-            </div>
-          </div>
-          <div class="gallery__track" tabindex="0" role="group" aria-label="Photo gallery, scroll to see more">
-            <div class="placeholder">
-              <p class="placeholder__label">Volunteers in action <span class="placeholder__file">assets/img/home-gallery-1.jpg</span></p>
-              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-1.jpg" alt="LSO volunteers helping at a community event" />
-            </div>
-            <div class="placeholder">
-              <p class="placeholder__label">A multilingual event <span class="placeholder__file">assets/img/home-gallery-2.jpg</span></p>
-              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-2.jpg" alt="A multilingual LSO event with community members" />
-            </div>
-            <div class="placeholder">
-              <p class="placeholder__label">Our team together <span class="placeholder__file">assets/img/home-gallery-3.jpg</span></p>
-              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-3.jpg" alt="The LSO team together" />
-            </div>
-            <div class="placeholder">
-              <p class="placeholder__label">Serving the community <span class="placeholder__file">assets/img/home-gallery-4.jpg</span></p>
-              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-4.jpg" alt="LSO volunteers serving the community" />
-            </div>
-            <div class="placeholder">
-              <p class="placeholder__label">A celebration <span class="placeholder__file">assets/img/home-gallery-5.jpg</span></p>
-              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-5.jpg" alt="A cultural celebration hosted by LSO" />
-            </div>
-            <div class="placeholder">
-              <p class="placeholder__label">Volunteers at work <span class="placeholder__file">assets/img/home-gallery-6.jpg</span></p>
-              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-6.jpg" alt="LSO volunteers at work" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ IMPACT STATS ============ -->
     <section class="section section--ink" aria-labelledby="impact-h">
       <div class="wrap">
@@ -177,6 +173,47 @@
           </div>
         </div>
         <p class="impact-note" data-reveal>Figures are estimates as of June 2026.</p>
+      </div>
+    </section>
+
+    <!-- ============ PHOTO GALLERY (scrollable) ============ -->
+    <section class="section section--tight" aria-label="Photos from our work">
+      <div class="wrap">
+        <div class="gallery" data-gallery data-reveal>
+          <div class="gallery__head">
+            <span class="kicker">In the community</span>
+            <div class="gallery__controls">
+              <button type="button" class="gallery__btn" data-gallery-prev aria-label="Previous photos"><span aria-hidden="true">&larr;</span></button>
+              <button type="button" class="gallery__btn" data-gallery-next aria-label="Next photos"><span aria-hidden="true">&rarr;</span></button>
+            </div>
+          </div>
+          <div class="gallery__track" tabindex="0" role="group" aria-label="Photo gallery, scroll to see more">
+            <div class="placeholder">
+              <p class="placeholder__label">Volunteers in action <span class="placeholder__file">assets/img/home-gallery-1.jpg</span></p>
+              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-1.jpg" alt="LSO volunteers helping at a community event" />
+            </div>
+            <div class="placeholder">
+              <p class="placeholder__label">A multilingual event <span class="placeholder__file">assets/img/home-gallery-2.jpg</span></p>
+              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-2.jpg" alt="A multilingual LSO event with community members" />
+            </div>
+            <div class="placeholder">
+              <p class="placeholder__label">Our team together <span class="placeholder__file">assets/img/home-gallery-3.jpg</span></p>
+              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-3.jpg" alt="The LSO team together" />
+            </div>
+            <div class="placeholder">
+              <p class="placeholder__label">Serving the community <span class="placeholder__file">assets/img/home-gallery-4.jpg</span></p>
+              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-4.jpg" alt="LSO volunteers serving the community" />
+            </div>
+            <div class="placeholder">
+              <p class="placeholder__label">A celebration <span class="placeholder__file">assets/img/home-gallery-5.jpg</span></p>
+              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-5.jpg" alt="A cultural celebration hosted by LSO" />
+            </div>
+            <div class="placeholder">
+              <p class="placeholder__label">Volunteers at work <span class="placeholder__file">assets/img/home-gallery-6.jpg</span></p>
+              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-6.jpg" alt="LSO volunteers at work" />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -222,7 +259,7 @@
       </div>
       <div class="footer__bottom">
         <span>&copy; <span data-year>2026</span> Language Service Organization. All rights reserved.</span>
-        <span>Made by students at Avenues NYC.</span>
+        <span>Made by Nicolas Gutierrez and students at Avenues NYC.</span>
       </div>
     </div>
   </footer>
