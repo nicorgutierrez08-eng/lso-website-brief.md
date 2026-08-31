@@ -80,7 +80,7 @@ are the photos it slides through:
 - Hudson Guild (1): `event-hudson-guild.jpg`
 - Elliott-Chelsea Houses (1): `event-elliott-chelsea.jpg`
 - Holy Apostles Soup Kitchen (1): `event-holy-apostles.jpg`
-- KidsKnowRights (1): `event-kidsknowrights.jpg`
+- KidsKnowRights (1): `kkr.jpg`
 
 ### Get Involved (`get-involved.html`)
 - `get-involved-banner.jpg` .. full-width banner at the top

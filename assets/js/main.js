@@ -150,7 +150,10 @@
       "Member": "Miembro",
       "Director of Media": "Director de medios",
       "Senior Advisor": "Asesor sénior",
-      "Faculty Advisor": "Asesor docente"
+      "Faculty Advisor": "Asesor docente",
+      "Director of Outreach and Partnerships": "Director de Alcance y Alianzas",
+      "Treasurer": "Tesorero",
+      "Head of Volunteer Programs": "Director de Programas de Voluntariado"
     },
     zh: {
       "Home": "首页",
@@ -238,7 +241,10 @@
       "Member": "成员",
       "Director of Media": "媒体负责人",
       "Senior Advisor": "高级顾问",
-      "Faculty Advisor": "指导教师"
+      "Faculty Advisor": "指导教师",
+      "Director of Outreach and Partnerships": "外联与合作负责人",
+      "Treasurer": "财务主管",
+      "Head of Volunteer Programs": "志愿项目负责人"
     }
   };
   var I18N_HTMLLANG = { en: "en", es: "es", zh: "zh" };
