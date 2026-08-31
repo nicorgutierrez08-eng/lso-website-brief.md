@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Language Service Organization | Avenues NYC</title>
+  <meta name="description" content="A student-led nonprofit at Avenues NYC using English, Spanish, and Chinese to serve New York City communities through translation, connection, and support." />
+
+  <!-- Canonical URL: the exact host + path GitHub Pages serves this page at -->
+  <link rel="canonical" href="https://languageserviceclub.com/" />
+  <!-- Google Search Console verification (HTML-tag method). The head is static, so
+       Google sees this without running JS. TODO: replace REPLACE_WITH_GSC_TOKEN with the
+       exact content value GSC gives you under "HTML tag", then keep this tag permanently. -->
+  <meta name="google-site-verification" content="REPLACE_WITH_GSC_TOKEN" />
+
+  <!-- Open Graph (link previews on Facebook, LinkedIn, iMessage, Slack, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Language Service Organization" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Language Service Organization | Avenues NYC" />
+  <meta property="og:description" content="A student-led nonprofit at Avenues NYC using English, Spanish, and Chinese to serve New York City communities through translation, connection, and support." />
+  <meta property="og:url" content="https://languageserviceclub.com/" />
+  <meta property="og:image" content="https://languageserviceclub.com/assets/img/home-hero.jpg" />
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Language Service Organization | Avenues NYC" />
+  <meta name="twitter:description" content="A student-led nonprofit at Avenues NYC using English, Spanish, and Chinese to serve New York City communities through translation, connection, and support." />
+  <meta name="twitter:image" content="https://languageserviceclub.com/assets/img/home-hero.jpg" />
+
+  <!-- Structured data: the organization (same entity across every page) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Language Service Organization",
+    "alternateName": "LSO",
+    "url": "https://languageserviceclub.com/",
+    "description": "A student-led nonprofit at Avenues NYC using English, Spanish, and Chinese to serve New York City communities through translation, connection, and support.",
+    "sameAs": [
+      "https://www.linkedin.com/company/language-service-organization/",
+      "https://www.instagram.com/avenueslanguageserviceclub"
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Language Service Organization home">
+        <span class="brand__name">Language Service Organization</span>
+        <span class="brand__tag">English <span class="dot">•</span> Español <span class="dot">•</span> 中文 <span class="dot">|</span> Avenues NYC</span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span>
+      </button>
+
+      <nav class="nav__menu" id="nav-menu" aria-label="Primary">
+        <ul class="nav__links">
+          <li><a href="index.html" aria-current="page" data-i18n="nav.home">Home</a></li>
+          <li><a href="our-work.html" data-i18n="nav.work">Our Work</a></li>
+          <li><a href="get-involved.html" data-i18n="nav.involved">Get Involved</a></li>
+          <li><a href="our-people.html" data-i18n="nav.people">Our People</a></li>
+        </ul>
+        <div class="lang-switch" role="group" aria-label="Choose language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="es">ES</button>
+          <button type="button" data-lang="zh">中</button>
+        </div>
+        <a class="btn nav__cta" href="get-involved.html" data-i18n="nav.cta">Join us <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      </nav>
+      <div class="nav-backdrop" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO BANNER (full-width, shared component) ============ -->
+    <section class="hero-banner" aria-label="Language Service Organization">
+      <div class="placeholder hero-banner__bg" aria-hidden="true">
+        <p class="placeholder__label">NYC skyline or volunteers at a community event <span class="placeholder__file">assets/img/home-hero.jpg</span></p>
+        <img class="placeholder__img" src="assets/img/home-hero.jpg" alt="" />
+      </div>
+      <div class="hero-banner__overlay" aria-hidden="true"></div>
+      <div class="wrap hero-banner__inner">
+        <h1 class="hero-banner__name" data-load="2">Language Service Organization</h1>
+        <p class="hero-banner__tag" data-load="3">English <span class="dot">•</span> Español <span class="dot">•</span> 中文 <span class="dot">|</span> Avenues NYC</p>
+      </div>
+    </section>
+
+    <!-- ============ INTRO ============ -->
+    <section class="section intro" aria-labelledby="intro-h">
+      <div class="wrap">
+        <h2 class="intro__title" id="intro-h" data-reveal>Language is a bridge across our city.</h2>
+        <p class="lede" data-reveal data-delay="1">We are high school volunteers who use our fluency in English, Spanish, and Chinese to give back to New York City. Translation, connection, and real support, where it is needed most.</p>
+        <div class="hero__actions" data-reveal data-delay="2">
+          <a class="btn" href="our-work.html">See our work <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn--ghost" href="get-involved.html">Get involved</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MISSION ============ -->
+    <section class="section section--paper-deep" aria-labelledby="mission-h">
+      <div class="wrap split">
+        <div class="split__aside" data-reveal>
+          <span class="kicker">Our mission</span>
+          <h2 id="mission-h">Language should bring our diverse city closer together.</h2>
+        </div>
+        <div class="split__main prose" data-reveal data-delay="1">
+          <p>The Language Service Organization is a student-led nonprofit dedicated to giving back to the New York City community through the power of language. While we strive to break down communication barriers, our ultimate goal is to actively help our neighbors by providing essential translation, connection, and support where it is needed most.</p>
+          <p>We believe language should be a bridge that brings our diverse city closer together.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT WE DO ============ -->
+    <section class="section" aria-labelledby="what-h">
+      <div class="wrap split">
+        <div class="split__aside" data-reveal>
+          <span class="kicker">What we do</span>
+          <h2 id="what-h">Fluency, put to work for our neighbors.</h2>
+        </div>
+        <div class="split__main prose" data-reveal data-delay="1">
+          <p>Our high school volunteers use their fluency in English, Spanish, and Chinese to serve local NYC communities. We host multilingual events, offer real-time translation assistance, and partner with local organizations so everyone has access to the resources they need to thrive.</p>
+          <p class="card__link"><a class="link-arrow" href="our-work.html">Meet our partner organizations <span aria-hidden="true">&rarr;</span></a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IMPACT STATS ============ -->
+    <section class="section section--ink" aria-labelledby="impact-h">
+      <div class="wrap">
+        <span class="kicker" data-reveal>Our impact</span>
+        <h2 id="impact-h" data-reveal>Showing up, over and over.</h2>
+        <div class="impact-grid">
+          <div class="stat" data-reveal>
+            <div class="stat__num" data-count="2200" data-suffix="+">2,200+</div>
+            <div class="stat__label">Volunteer hours contributed</div>
+            <p class="stat__desc">Across our weekly programs since January 2025, counting all volunteers.</p>
+          </div>
+          <div class="stat" data-reveal data-delay="1">
+            <div class="stat__num" data-count="85" data-suffix="+">85+</div>
+            <div class="stat__label">Recurring service sessions</div>
+            <p class="stat__desc">Every Saturday at St. Clement's and every Wednesday at New Sanctuary Coalition during the school year.</p>
+          </div>
+          <div class="stat" data-reveal data-delay="2">
+            <div class="stat__num" data-count="30" data-suffix="+">30+</div>
+            <div class="stat__label">Special events and drives</div>
+            <p class="stat__desc">Including JASA senior programming, the MOCA Lunar New Year event, and food, toy, and clothing drives at St. Peter's Church.</p>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat__num" data-count="25">25</div>
+            <div class="stat__label">Student volunteers</div>
+            <p class="stat__desc">High schoolers rotating across our service opportunities.</p>
+          </div>
+          <div class="stat" data-reveal data-delay="1">
+            <div class="stat__num" data-count="15">15</div>
+            <div class="stat__label">Community partners</div>
+            <p class="stat__desc">St. Clement's, New Sanctuary Coalition, JASA, St. Peter's Church, MOCA, MintBox, Hudson Guild, Elliott-Chelsea Houses, Holy Apostles Soup Kitchen, KidsKnowRights, Queens Mutual Aid, Knowledge to Power Catalysts, Youth Today, La Opinión, and SpaceBridge / Visual Echo.</p>
+          </div>
+          <div class="stat" data-reveal data-delay="2">
+            <div class="stat__num" data-count="3">3</div>
+            <div class="stat__label">Languages</div>
+            <p class="stat__desc">English, Spanish, and Chinese.</p>
+          </div>
+        </div>
+        <p class="impact-note" data-reveal>Figures are estimates as of June 2026.</p>
+      </div>
+    </section>
+
+    <!-- ============ PHOTO GALLERY (scrollable) ============ -->
+    <section class="section section--tight" aria-label="Photos from our work">
+      <div class="wrap">
+        <div class="gallery" data-gallery data-reveal>
+          <div class="gallery__head">
+            <span class="kicker">In the community</span>
+            <div class="gallery__controls">
+              <button type="button" class="gallery__btn" data-gallery-prev aria-label="Previous photos"><span aria-hidden="true">&larr;</span></button>
+              <button type="button" class="gallery__btn" data-gallery-next aria-label="Next photos"><span aria-hidden="true">&rarr;</span></button>
+            </div>
+          </div>
+          <div class="gallery__track" tabindex="0" role="group" aria-label="Photo gallery, scroll to see more">
+            <div class="placeholder">
+              <p class="placeholder__label">Volunteers in action <span class="placeholder__file">assets/img/home-gallery-1.jpg</span></p>
+              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-1.jpg" alt="LSO volunteers helping at a community event" />
+            </div>
+            <div class="placeholder">
+              <p class="placeholder__label">A multilingual event <span class="placeholder__file">assets/img/home-gallery-2.jpg</span></p>
+              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-2.jpg" alt="A multilingual LSO event with community members" />
+            </div>
+            <div class="placeholder">
+              <p class="placeholder__label">Our team together <span class="placeholder__file">assets/img/home-gallery-3.jpg</span></p>
+              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-3.jpg" alt="The LSO team together" />
+            </div>
+            <div class="placeholder">
+              <p class="placeholder__label">Serving the community <span class="placeholder__file">assets/img/home-gallery-4.jpg</span></p>
+              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-4.jpg" alt="LSO volunteers serving the community" />
+            </div>
+            <div class="placeholder">
+              <p class="placeholder__label">A celebration <span class="placeholder__file">assets/img/home-gallery-5.jpg</span></p>
+              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-5.jpg" alt="A cultural celebration hosted by LSO" />
+            </div>
+            <div class="placeholder">
+              <p class="placeholder__label">Volunteers at work <span class="placeholder__file">assets/img/home-gallery-6.jpg</span></p>
+              <img loading="lazy" decoding="async" class="placeholder__img" src="assets/img/home-gallery-6.jpg" alt="LSO volunteers at work" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA BAND ============ -->
+    <section class="section cta-band" aria-labelledby="cta-h">
+      <div class="wrap">
+        <span class="kicker" data-reveal>Get involved</span>
+        <h2 id="cta-h" data-reveal>Speak English, Spanish, or Chinese? Put it to good use.</h2>
+        <p class="lede" data-reveal data-delay="1">We are always looking for passionate high schoolers in NYC who want to give back to the community.</p>
+        <div class="hero__actions" data-reveal data-delay="2">
+          <a class="btn" href="get-involved.html">Join our team <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn--ghost" href="our-people.html">Meet our people</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="brand__name">Language Service Organization</span>
+          <p>A student-led nonprofit at Avenues NYC, serving our communities through the power of language.</p>
+          <p class="trilingual-mini">English <span class="dot">•</span> Español <span class="dot">•</span> 中文</p>
+        </div>
+        <div class="footer__col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="our-work.html">Our Work</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+            <li><a href="our-people.html">Our People</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://instagram.com/avenueslanguageserviceclub" target="_blank" rel="noopener">Instagram: @avenueslanguageserviceclub</a></li>
+            <li><a href="https://www.linkedin.com/company/111957608/" target="_blank" rel="noopener">LinkedIn: Language Service Organization</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2026</span> Language Service Organization. All rights reserved.</span>
+        <span>Made by Nicolas Gutierrez and students at Avenues NYC.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
