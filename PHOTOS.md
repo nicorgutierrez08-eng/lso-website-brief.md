@@ -47,8 +47,9 @@ can open up the extra slots.
 There are 76 photo spots. You do not need to fill them all at once. Add the ones
 you have, and the rest stay as labeled placeholders until you do.
 
-The little **browser-tab icon (favicon)** is `tab.jpg` — put it in `assets/img`
-like the rest, and it shows on every page's tab.
+The little **browser-tab icon (favicon)** is `tab.png` — put it in `assets/img`
+like the rest, and it shows on every page's tab. (PNG so it can have a
+transparent background; a square image works best.)
 
 ### Home (`index.html`)
 - `home-hero.jpg` ............ full-width banner at the top
