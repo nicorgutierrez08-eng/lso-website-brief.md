@@ -44,8 +44,11 @@ can open up the extra slots.
 
 ## The full list of photo names
 
-There are 79 photo spots. You do not need to fill them all at once. Add the ones
+There are 76 photo spots. You do not need to fill them all at once. Add the ones
 you have, and the rest stay as labeled placeholders until you do.
+
+The little **browser-tab icon (favicon)** is `tab.jpg` — put it in `assets/img`
+like the rest, and it shows on every page's tab.
 
 ### Home (`index.html`)
 - `home-hero.jpg` ............ full-width banner at the top
@@ -82,10 +85,6 @@ are the photos it slides through:
 - Holy Apostles Soup Kitchen (1): `event-holy-apostles.jpg`
 - KidsKnowRights (1): `kkr.jpg`
 - Queens Mutual Aid (1): `qma.jpg`
-- Knowledge to Power Catalysts (1): `ktpc.jpg`
-- Youth Today (1): `yt.jpg`
-- La Opinión (1): `lo.jpg`
-- SpaceBridge / Visual Echo (1): `ve.jpg`
 
 ### Get Involved (`get-involved.html`)
 - `get-involved-banner.jpg` .. full-width banner at the top
