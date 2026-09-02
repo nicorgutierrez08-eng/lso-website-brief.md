@@ -158,7 +158,7 @@
       "Faculty Advisor": "Asesor docente",
       "Director of Outreach": "Director de Alcance",
       "Director of Partnerships": "Director de Alianzas",
-      "Assistant Head of Spanish": "Subdirector de Español",
+      "Assistant Director and Event Coordinator": "Subdirector y Coordinador de Eventos",
       "Assistant Head of Volunteer Programs": "Subdirector de Programas de Voluntariado",
       "Treasurer": "Tesorero",
       "Head of Volunteer Programs": "Director de Programas de Voluntariado"
@@ -257,7 +257,7 @@
       "Faculty Advisor": "指导教师",
       "Director of Outreach": "外联负责人",
       "Director of Partnerships": "合作负责人",
-      "Assistant Head of Spanish": "西班牙语副负责人",
+      "Assistant Director and Event Coordinator": "副主管兼活动协调员",
       "Assistant Head of Volunteer Programs": "志愿项目副负责人",
       "Treasurer": "财务主管",
       "Head of Volunteer Programs": "志愿项目负责人"
