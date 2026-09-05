@@ -1,0 +1,756 @@
+/* =========================================================================
+   Language Service Organization
+   Aesthetic: "Clear Civic"
+   - White and light blue-grey backgrounds, near-black navy text
+   - Navy as the dominant dark, blue as the primary accent, green as the
+     secondary highlight, red reserved for the language-separator dots
+   - Fraunces (display serif) + Public Sans (civic body) + Noto SC (CJK)
+   - The trilingual tagline's bullet becomes a recurring connective motif
+   ========================================================================= */
+
+/* ---------- Design tokens ----------
+   Note: a few legacy variable names are kept (--paper, --vermilion, --marigold)
+   so the rest of the stylesheet stays stable. Their VALUES now carry the new
+   palette: --vermilion is the primary blue, --marigold is the green highlight,
+   --paper is white. Plain-named tokens below are preferred for new code.       */
+:root {
+  /* Palette */
+  --white:        #FFFFFF;
+  --bg-alt:       #EFF4FA;   /* light blue-grey alternating sections */
+  --bg-tint:      #E1ECF7;   /* light blue tint (placeholders, badges) */
+  --navy:         #14315B;   /* dominant dark: footer, impact band */
+  --navy-deep:    #0E2342;
+  --blue:         #1F66C7;   /* primary accent: buttons, links, nav */
+  --blue-deep:    #154E9E;
+  --blue-light:   #7FB2E8;   /* light blue accent on dark backgrounds */
+  --green:        #1F8A66;   /* secondary accent (muted) */
+  --green-light:  #4DAE88;   /* soft green highlight on dark backgrounds */
+  --red:          #D62828;   /* the language-separator dot motif */
+  --red-deep:     #B11E1E;
+
+  /* Legacy aliases mapped to the new palette */
+  --paper:        var(--white);
+  --paper-deep:   var(--bg-alt);
+  --ink:          #11203A;   /* near-black navy text */
+  --ink-soft:     #455062;   /* grey body text */
+  --ink-faint:    #5E6A7B;   /* readable grey for small meta text */
+  --vermilion:    var(--blue);
+  --vermilion-deep:var(--blue-deep);
+  --marigold:     var(--green-light);
+  --sage:         var(--green);
+  --line:         #DBE3EE;
+  --paper-card:   #FFFFFF;
+
+  /* Type */
+  --font-display: "Schibsted Grotesk", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
+  --font-body:    "Public Sans", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+  --space-7: 9rem;
+
+  /* Layout */
+  --maxw: 1180px;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --radius: 4px;
+
+  --shadow: 0 1px 0 var(--line), 0 18px 40px -28px rgba(21, 34, 50, 0.45);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.65;
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.075rem);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Faint tint via layered gradients (light blue + green) */
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(31, 102, 199, 0.05), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(31, 158, 115, 0.05), transparent 40%);
+  background-attachment: fixed;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2.4rem, 1.6rem + 3.4vw, 4.2rem); font-weight: 600; }
+h2 { font-size: clamp(1.9rem, 1.4rem + 2vw, 2.7rem); }
+h3 { font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.6rem); }
+p { max-width: 64ch; }
+
+.kicker {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vermilion);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+}
+.kicker::before {
+  content: "";
+  width: 1.6rem; height: 2px;
+  background: var(--vermilion);
+  display: inline-block;
+}
+
+/* The recurring connective dot motif (the language separator, in red) */
+.dot { color: var(--red); font-weight: 700; padding: 0 0.15em; }
+
+/* ---------- Layout helpers ---------- */
+.wrap { width: min(100% - 2rem, var(--maxw)); margin-inline: auto; padding-inline: max(0px, calc((var(--gutter) - 1rem))); }
+.section { padding-block: clamp(3.5rem, 8vw, var(--space-7)); }
+.section--tight { padding-block: clamp(2.5rem, 5vw, var(--space-5)); }
+.lede { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.45rem); color: var(--ink-soft); max-width: 56ch; line-height: 1.55; }
+
+/* Accessibility utilities */
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: 1rem; top: -100%;
+  background: var(--ink); color: var(--paper);
+  padding: 0.75rem 1.25rem; border-radius: var(--radius); z-index: 200;
+  font-weight: 600; transition: top 0.2s var(--ease);
+}
+.skip-link:focus { top: 1rem; }
+
+:focus-visible {
+  outline: 3px solid var(--vermilion);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Buttons & links ---------- */
+.btn {
+  --btn-bg: var(--vermilion);
+  --btn-fg: var(--paper);
+  display: inline-flex; align-items: center; gap: 0.6em;
+  font-family: var(--font-body); font-weight: 600; font-size: 0.98rem;
+  padding: 0.85em 1.5em;
+  background: var(--btn-bg); color: var(--btn-fg);
+  border: 2px solid var(--btn-bg);
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  box-shadow: 0 10px 22px -14px rgba(31, 102, 199, 0.65);
+}
+.btn:hover { transform: translateY(-2px); background: var(--vermilion-deep); border-color: var(--vermilion-deep); }
+.btn .arrow { transition: transform 0.25s var(--ease); }
+.btn:hover .arrow { transform: translateX(4px); }
+
+.btn--ghost {
+  --btn-bg: transparent; --btn-fg: var(--ink);
+  border-color: var(--ink);
+  box-shadow: none;
+}
+.btn--ghost:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 0.4em;
+  font-weight: 600; color: var(--vermilion); text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s var(--ease), gap 0.2s var(--ease);
+}
+.link-arrow:hover { border-color: var(--vermilion); gap: 0.7em; }
+
+/* =========================================================================
+   Header / Nav
+   ========================================================================= */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: 0.9rem;
+}
+.brand {
+  display: flex; flex-direction: column;
+  text-decoration: none; color: var(--ink);
+  line-height: 1.05;
+}
+.brand__name {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.18rem; letter-spacing: -0.01em;
+}
+.brand__tag {
+  font-size: 0.72rem; color: var(--ink-faint); font-weight: 500;
+  letter-spacing: 0.02em; margin-top: 0.15rem;
+}
+.brand__tag .dot { color: var(--vermilion); }
+
+.nav__menu { display: flex; align-items: center; gap: clamp(0.9rem, 1.8vw, 1.8rem); }
+
+.nav__links {
+  display: flex; align-items: center; gap: clamp(1rem, 2vw, 2.2rem);
+  list-style: none;
+}
+.nav__links a {
+  text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.97rem;
+  padding: 0.35rem 0; position: relative;
+}
+.nav__links a::after {
+  content: ""; position: absolute; left: 0; bottom: -2px; height: 2px; width: 0;
+  background: var(--vermilion); transition: width 0.25s var(--ease);
+}
+.nav__links a:hover::after,
+.nav__links a[aria-current="page"]::after { width: 100%; }
+.nav__links a[aria-current="page"] { color: var(--vermilion); }
+
+.nav__cta { margin-left: 0.5rem; }
+
+/* Language switcher scaffold (English only for now; wired for es/zh later) */
+.lang-switch {
+  display: inline-flex; gap: 0.15rem; align-items: center;
+  border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem;
+}
+.lang-switch button {
+  font: inherit; font-size: 0.78rem; font-weight: 600;
+  border: 0; background: transparent; color: var(--ink-faint);
+  padding: 0.25rem 0.6rem; border-radius: 999px; cursor: pointer;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+.lang-switch button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.lang-switch button:disabled { cursor: not-allowed; opacity: 0.55; }
+
+/* Hamburger */
+.nav__toggle {
+  display: none;
+  background: transparent; border: 1px solid var(--line); border-radius: var(--radius);
+  width: 44px; height: 44px; cursor: pointer; padding: 0;
+  align-items: center; justify-content: center;
+}
+.nav__toggle span, .nav__toggle span::before, .nav__toggle span::after {
+  content: ""; display: block; width: 22px; height: 2px; background: var(--ink);
+  transition: transform 0.3s var(--ease), opacity 0.2s var(--ease);
+}
+.nav__toggle span { position: relative; }
+.nav__toggle span::before { position: absolute; top: -7px; }
+.nav__toggle span::after { position: absolute; top: 7px; }
+.nav__toggle[aria-expanded="true"] span { background: transparent; }
+.nav__toggle[aria-expanded="true"] span::before { transform: translateY(7px) rotate(45deg); }
+.nav__toggle[aria-expanded="true"] span::after { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 860px) {
+  .nav__toggle { display: inline-flex; }
+  .nav__menu {
+    position: fixed; inset: 0 0 0 auto; width: min(82vw, 340px);
+    background: var(--paper); border-left: 1px solid var(--line);
+    transform: translateX(100%); transition: transform 0.35s var(--ease);
+    padding: 6rem var(--gutter) 2rem; box-shadow: -30px 0 60px -40px rgba(21,34,50,0.5);
+    display: flex; flex-direction: column; align-items: flex-start;
+  }
+  .nav__menu[data-open="true"] { transform: translateX(0); }
+  .nav__links { flex-direction: column; align-items: flex-start; gap: 1.4rem; font-size: 1.15rem; }
+  .nav__links a { font-size: 1.15rem; }
+  .nav__cta { margin: 1rem 0 0; }
+  .lang-switch { margin-top: 1.5rem; }
+  .nav-backdrop {
+    position: fixed; inset: 0; background: rgba(21,34,50,0.4);
+    opacity: 0; pointer-events: none; transition: opacity 0.3s var(--ease); z-index: 90;
+  }
+  .nav-backdrop[data-open="true"] { opacity: 1; pointer-events: auto; }
+}
+
+/* =========================================================================
+   Hero banner (full-width photo with overlaid wordmark)
+   ========================================================================= */
+.hero-banner {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; align-items: flex-end;
+  min-height: clamp(440px, 72vh, 700px);
+  background: var(--navy);
+}
+.hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.2rem; }
+
+/* The labeled placeholder fills the banner; darkened so white text reads */
+.placeholder.hero-banner__bg {
+  position: absolute; inset: 0; z-index: 0; min-height: 0;
+  border: 0; border-radius: 0; align-items: flex-start;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 16px, rgba(255,255,255,0.045) 16px 17px),
+    var(--navy);
+}
+.hero-banner__bg .placeholder__label {
+  width: auto; margin: 1.1rem; border-top: 0;
+  border: 1px solid color-mix(in srgb, var(--paper) 35%, transparent);
+  border-radius: 999px;
+}
+/* Gradient overlay: clearer at top, darker at the bottom for the text */
+.hero-banner__overlay {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgba(14,35,66,0.20) 0%,
+    rgba(14,35,66,0.05) 32%,
+    rgba(14,35,66,0.55) 76%,
+    rgba(14,35,66,0.82) 100%);
+}
+.hero-banner__inner {
+  position: relative; z-index: 2; color: var(--paper);
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+.hero-banner .kicker { color: var(--blue-light); }
+.hero-banner .kicker::before { background: var(--blue-light); }
+.hero-banner__name {
+  margin-top: 0.85rem; color: #fff;
+  font-size: clamp(2.2rem, 1.4rem + 3.6vw, 4.4rem);
+  line-height: 1.02; max-width: 18ch;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.30);
+}
+.hero-banner__tag {
+  margin-top: 1.05rem;
+  font-size: clamp(1.05rem, 0.92rem + 0.7vw, 1.45rem);
+  font-weight: 500; letter-spacing: 0.01em;
+  color: color-mix(in srgb, #fff 94%, transparent);
+}
+.hero-banner__tag .dot { color: #FF6B5E; }
+.hero-banner__badge {
+  display: inline-flex; align-items: baseline; gap: 0.5em;
+  margin-top: 1.6rem; padding: 0.55rem 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--paper) 40%, transparent);
+  border-radius: 999px; backdrop-filter: blur(4px);
+  background: color-mix(in srgb, var(--navy) 35%, transparent);
+  font-size: 0.92rem; font-weight: 600; letter-spacing: 0.02em;
+}
+.hero-banner__badge b { font-family: var(--font-display); font-size: 1.25rem; color: var(--marigold); }
+
+/* Shorter banner on small screens, text still scales via clamp */
+@media (max-width: 640px) {
+  .hero-banner { min-height: clamp(320px, 56vh, 440px); }
+  .hero-banner__name { max-width: 100%; }
+}
+
+/* Intro statement below the banner */
+.intro__title { max-width: 20ch; }
+.intro .lede { margin-top: 1.3rem; }
+
+/* =========================================================================
+   Photo placeholders (clearly labeled)
+   ========================================================================= */
+.placeholder {
+  position: relative;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 14px, rgba(21,34,50,0.035) 14px 15px),
+    var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: flex; align-items: flex-end; justify-content: flex-start;
+  overflow: hidden; min-height: 180px;
+  color: var(--ink-soft);
+}
+.placeholder::before {
+  content: "";
+  position: absolute; top: 1rem; right: 1rem;
+  width: 30px; height: 24px; border-radius: 3px;
+  border: 2px solid var(--ink-faint);
+  background:
+    radial-gradient(circle at 50% 60%, var(--ink-faint) 0 4px, transparent 5px);
+  opacity: 0.6;
+}
+.placeholder__label {
+  position: relative;
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1.4;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  border-top: 2px solid var(--vermilion);
+  padding: 0.6rem 0.85rem; margin: 0;
+  width: 100%;
+}
+.placeholder__label::before { content: "Photo: "; color: var(--vermilion); font-weight: 700; }
+/* The exact file name to upload for this slot */
+.placeholder__file {
+  display: block; margin-top: 0.2rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem; font-weight: 600; color: var(--blue);
+  letter-spacing: 0; word-break: break-all;
+}
+/* The real photo: covers the placeholder once it loads, hidden by JS if missing.
+   DEFAULT = object-fit: cover, so any photo (landscape, portrait, or square)
+   fills its tile and crops to the centre. The tile's shape is set by its
+   container, so every tile in a row stays the same size no matter the original
+   image. To shift the crop on one photo, add inline object-position to it. */
+.placeholder__img {
+  position: absolute; inset: 0; z-index: 2;
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; display: block;
+  background: var(--bg-alt);
+}
+/* OVERRIDE: show a photo in FULL with no cropping (object-fit: contain).
+   Add the class `is-full` to that one <img>, e.g.
+     <img class="placeholder__img is-full" src="assets/img/event-jasa1.jpg" alt="..." />
+   The whole image is shown, letterboxed on a soft matte where it doesn't fill
+   the tile. Use it for photos where cropping would cut off something important. */
+.placeholder__img.is-full {
+  object-fit: contain;
+  background: var(--bg-tint);
+}
+
+/* =========================================================================
+   Mission / generic prose blocks
+   ========================================================================= */
+.split {
+  display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: start;
+}
+.split__aside h2 { position: sticky; top: 6rem; }
+@media (max-width: 760px) { .split { grid-template-columns: 1fr; } .split__aside h2 { position: static; } }
+
+.prose p + p { margin-top: 1.1rem; }
+.prose p { color: var(--ink-soft); }
+
+.section--ink { background: var(--ink); color: var(--paper); }
+.section--ink h2, .section--ink h3 { color: var(--paper); }
+.section--ink p { color: color-mix(in srgb, var(--paper) 90%, transparent); }
+.section--ink .kicker { color: var(--blue-light); }
+.section--ink .kicker::before { background: var(--blue-light); }
+
+.section--paper-deep { background: var(--paper-deep); }
+
+/* =========================================================================
+   Impact stats
+   ========================================================================= */
+.impact-grid {
+  display: grid; margin-top: 2.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.75rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3rem);
+}
+@media (max-width: 820px) { .impact-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .impact-grid { grid-template-columns: 1fr; } }
+.stat { border-top: 3px solid var(--marigold); padding-top: 1.25rem; }
+.stat__num {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(2.9rem, 1.8rem + 4.2vw, 4.6rem); line-height: 0.95;
+  color: var(--marigold); letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.stat__label {
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  font-size: 0.82rem; margin-top: 0.6rem; color: var(--paper);
+}
+.stat__desc { margin-top: 0.7rem; max-width: 42ch; font-size: 0.95rem; }
+.impact-note {
+  margin-top: clamp(2rem, 4vw, 3rem); font-size: 0.85rem;
+  color: color-mix(in srgb, var(--paper) 72%, transparent);
+}
+
+/* =========================================================================
+   Cards (partners, steps, people)
+   ========================================================================= */
+.grid-cards {
+  display: grid; gap: clamp(1.25rem, 3vw, 2rem);
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+}
+.card {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--marigold); }
+.card .placeholder { min-height: 200px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; }
+.card__body { padding: 1.4rem 1.5rem 1.6rem; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+.card__title { display: flex; align-items: baseline; gap: 0.5rem; }
+.card__title h3 { font-size: 1.35rem; }
+.card__num {
+  font-family: var(--font-body); font-weight: 700; font-size: 0.8rem;
+  color: var(--vermilion); border: 2px solid var(--vermilion);
+  border-radius: 999px; min-width: 1.9rem; height: 1.9rem;
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.card p { color: var(--ink-soft); font-size: 0.97rem; }
+.card__link { margin-top: auto; padding-top: 0.5rem; }
+.card .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.3rem; }
+.tag {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+  background: var(--paper-deep); color: var(--ink-soft);
+  padding: 0.25rem 0.6rem; border-radius: 999px;
+}
+
+/* Steps (Get Involved) */
+.steps { counter-reset: step; display: grid; gap: 1.25rem; margin-top: 2.5rem; }
+.step {
+  display: grid; grid-template-columns: auto 1fr; gap: 1.25rem; align-items: start;
+  background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.step:hover { border-color: var(--marigold); transform: translateX(4px); }
+.step__num {
+  font-family: var(--font-display); font-weight: 600; font-size: 2.4rem; line-height: 1;
+  color: var(--vermilion);
+}
+.step h3 { font-size: 1.3rem; margin-bottom: 0.3rem; }
+.step p { color: var(--ink-soft); }
+
+/* People */
+:root { --avatar-size: 132px; } /* one place to change EVERY avatar's diameter */
+
+.people-grid {
+  display: grid; gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.people-grid--members {
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+}
+.person {
+  background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 1.5rem 0.9rem 0.4rem;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.person:hover { border-color: var(--marigold); transform: translateY(-3px); box-shadow: var(--shadow); }
+
+/* Uniform circular avatars.
+   Every avatar is exactly --avatar-size across, no matter the original photo's
+   shape or size. object-fit: cover fills the circle and crops to the centre;
+   border-radius: 50% makes it round. To fine-tune ONE person's framing, add an
+   inline object-position to that single <img> (see the note at the end). */
+.person__photo {
+  flex: 0 0 auto;
+  width: var(--avatar-size); height: var(--avatar-size);
+  aspect-ratio: 1 / 1; min-height: 0;
+  border: 1px solid var(--line); border-radius: 50%;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.3s var(--ease);
+}
+.person:hover .person__photo { border-color: var(--marigold); }
+.person__photo::before { display: none; } /* hide the little camera glyph inside the circle */
+.person__photo .placeholder__img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 50%; /* default: centre crop */
+  border-radius: 50%;
+}
+/* Empty-state label (shown only until a photo is added): centred and compact
+   so it reads inside the round frame instead of a bottom bar. */
+.person__photo .placeholder__label {
+  position: static; width: auto; border-top: 0; background: transparent;
+  padding: 0 0.6rem; text-align: center; font-size: 0.6rem; line-height: 1.3;
+}
+.person__photo .placeholder__file { font-size: 0.56rem; margin-top: 0.15rem; }
+
+.person__info { padding: 0.9rem 0.5rem 1.2rem; }
+.person h3 { font-size: 1.15rem; }
+.person__role { color: var(--vermilion); font-weight: 600; font-size: 0.88rem; margin-top: 0.15rem; }
+.person__email {
+  display: inline-block; margin-top: 0.5rem; font-size: 0.82rem; color: var(--ink-faint);
+  text-decoration: none; border-bottom: 1px solid transparent; word-break: break-word;
+}
+.person__email:hover { color: var(--vermilion); border-color: var(--vermilion); }
+
+/* Email chips (Get Involved) */
+.email-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+.email-chip {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--paper-card); border: 1px solid var(--line); border-radius: 999px;
+  padding: 0.6rem 1.1rem; text-decoration: none; font-weight: 600; font-size: 0.92rem;
+  color: var(--ink);
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease), color 0.2s var(--ease);
+}
+.email-chip:hover { border-color: var(--vermilion); color: var(--vermilion); transform: translateY(-2px); }
+.email-chip::before { content: "@"; color: var(--vermilion); font-family: var(--font-display); font-weight: 700; }
+
+/* =========================================================================
+   Page header band (interior pages)
+   ========================================================================= */
+.page-head { padding-block: clamp(3rem, 7vw, 5.5rem) clamp(2rem, 4vw, 3rem); }
+.page-head h1 { margin-top: 1rem; }
+.page-head .lede { margin-top: 1.4rem; }
+
+/* CTA band */
+.cta-band { text-align: center; }
+.cta-band .wrap { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+.cta-band h2 { max-width: 18ch; }
+.cta-band .hero__actions { justify-content: center; }
+
+/* Photo strip (Home) */
+.photo-strip {
+  display: grid; gap: 1.25rem; margin-top: 2.5rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+.photo-strip .placeholder { aspect-ratio: 4 / 3; min-height: 0; }
+@media (max-width: 760px) { .photo-strip { grid-template-columns: 1fr; } }
+
+/* =========================================================================
+   Reusable responsive photo grid (use for ANY new multi-photo section)
+   Drop a <div class="photo-grid"> around any number of .placeholder tiles and
+   they auto-arrange into even columns that get fewer on narrow screens. Every
+   tile is the same size and shape (square by default), photos fill via
+   object-fit: cover, with consistent rounded corners and spacing — one designed
+   gallery, not mismatched images. Works for any photo you add later.
+   Variants: add `photo-grid--wide` for 4:3 tiles, `photo-grid--small` for more,
+   smaller tiles. Tag any single photo with `is-full` to show it uncropped. */
+.photo-grid {
+  display: grid; gap: clamp(0.75rem, 2vw, 1.25rem);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.photo-grid .placeholder {
+  aspect-ratio: 1 / 1; min-height: 0;
+  border-radius: var(--radius); overflow: hidden;
+}
+.photo-grid--wide .placeholder { aspect-ratio: 4 / 3; }
+.photo-grid--small { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+@media (max-width: 520px) {
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Scrollable photo gallery (Home) */
+.gallery { margin-top: 2rem; }
+.gallery__head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; margin-bottom: 1.25rem;
+}
+.gallery__controls { display: flex; gap: 0.6rem; }
+.gallery__btn {
+  width: 44px; height: 44px; border-radius: 999px;
+  border: 1.5px solid var(--ink); background: var(--paper); color: var(--ink);
+  cursor: pointer; font-size: 1.1rem; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.gallery__btn:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+.gallery__track {
+  display: grid; grid-auto-flow: column;
+  grid-auto-columns: clamp(250px, 60vw, 380px);
+  gap: 1.25rem; overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  padding-bottom: 1rem;
+  scrollbar-width: thin; scrollbar-color: var(--line) transparent;
+}
+.gallery__track::-webkit-scrollbar { height: 8px; }
+.gallery__track::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+.gallery__track .placeholder { scroll-snap-align: start; aspect-ratio: 4 / 3; min-height: 0; }
+@media (prefers-reduced-motion: reduce) { .gallery__track { scroll-behavior: auto; } }
+
+/* Photo paired with text (Get Involved) */
+.aside-photo { margin-top: 1.5rem; aspect-ratio: 4 / 3; }
+
+/* =========================================================================
+   Photo slider (sliding photos: many photos in one spot)
+   One slide shows at a time; arrows, dots, swipe and gentle autoplay move
+   between them. Each slide is a normal labeled placeholder, so any photo not
+   yet uploaded simply shows its grey "Photo: filename" box and nothing breaks.
+   ========================================================================= */
+.slider { position: relative; overflow: hidden; }
+.slider__track {
+  display: flex; flex-wrap: nowrap;
+  transition: transform 0.55s var(--ease);
+  will-change: transform;
+}
+.slider__track > .placeholder {
+  flex: 0 0 100%; width: 100%;
+  aspect-ratio: 4 / 3; min-height: 0;
+}
+@media (prefers-reduced-motion: reduce) { .slider__track { transition: none; } }
+
+.slider__btn {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 6;
+  width: 38px; height: 38px; border-radius: 999px; border: 0;
+  background: color-mix(in srgb, var(--ink) 55%, transparent); color: var(--paper);
+  cursor: pointer; font-size: 1.4rem; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.2s var(--ease), background 0.2s var(--ease);
+}
+.slider:hover .slider__btn, .slider:focus-within .slider__btn { opacity: 1; }
+.slider__btn:hover { background: var(--ink); }
+.slider__btn:focus-visible { opacity: 1; outline: 3px solid var(--paper); outline-offset: 2px; }
+.slider__btn--prev { left: 0.6rem; }
+.slider__btn--next { right: 0.6rem; }
+
+.slider__dots {
+  position: absolute; left: 0; right: 0; bottom: 0.6rem; z-index: 6;
+  display: flex; gap: 0.4rem; justify-content: center; flex-wrap: wrap; padding: 0 1rem;
+}
+.slider__dot {
+  width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; cursor: pointer;
+  background: color-mix(in srgb, var(--paper) 55%, transparent);
+  box-shadow: 0 0 0 1px rgba(17, 32, 58, 0.35);
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.slider__dot[aria-current="true"] { background: var(--paper); transform: scale(1.3); }
+/* On touch devices there is no hover, so keep the arrows gently visible */
+@media (hover: none) { .slider__btn { opacity: 0.85; } }
+
+/* =========================================================================
+   Footer
+   ========================================================================= */
+.site-footer {
+  background: var(--ink); color: var(--paper);
+  padding-block: clamp(2.5rem, 5vw, 4rem) 2rem;
+}
+.footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; }
+.footer__brand .brand__name { color: var(--paper); font-size: 1.4rem; }
+.footer__brand p { color: color-mix(in srgb, var(--paper) 86%, transparent); margin-top: 0.7rem; max-width: 38ch; font-size: 0.95rem; }
+.footer__brand .trilingual-mini { margin-top: 1rem; font-family: var(--font-display); font-size: 1.1rem; }
+.footer__brand .trilingual-mini .dot { color: var(--red); }
+.footer__col h4 {
+  font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--blue-light); margin-bottom: 1rem;
+}
+.footer__col ul { list-style: none; display: grid; gap: 0.6rem; }
+.footer__col a { color: color-mix(in srgb, var(--paper) 88%, transparent); text-decoration: none; transition: color 0.2s var(--ease); }
+.footer__col a:hover { color: var(--blue-light); }
+.footer__bottom {
+  margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(251,246,236,0.18);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;
+  font-size: 0.85rem; color: color-mix(in srgb, var(--paper) 78%, transparent);
+}
+@media (max-width: 760px) { .footer__top { grid-template-columns: 1fr; gap: 2rem; } }
+
+/* =========================================================================
+   Scroll-reveal motion
+   ========================================================================= */
+[data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+[data-reveal].is-visible { opacity: 1; transform: none; }
+[data-reveal][data-delay="1"] { transition-delay: 0.08s; }
+[data-reveal][data-delay="2"] { transition-delay: 0.16s; }
+[data-reveal][data-delay="3"] { transition-delay: 0.24s; }
+[data-reveal][data-delay="4"] { transition-delay: 0.32s; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; }
+}
+
+/* Hero load animation */
+.hero [data-load], .hero-banner [data-load] { opacity: 0; transform: translateY(18px); animation: rise 0.8s var(--ease) forwards; }
+.hero [data-load="1"], .hero-banner [data-load="1"] { animation-delay: 0.05s; }
+.hero [data-load="2"], .hero-banner [data-load="2"] { animation-delay: 0.18s; }
+.hero [data-load="3"], .hero-banner [data-load="3"] { animation-delay: 0.31s; }
+.hero [data-load="4"], .hero-banner [data-load="4"] { animation-delay: 0.44s; }
+.hero [data-load="5"], .hero-banner [data-load="5"] { animation-delay: 0.57s; }
+@keyframes rise { to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .hero [data-load], .hero-banner [data-load] { opacity: 1; transform: none; animation: none; }
+}
