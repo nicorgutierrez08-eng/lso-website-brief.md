@@ -44,7 +44,7 @@ can open up the extra slots.
 
 ## The full list of photo names
 
-There are 76 photo spots. You do not need to fill them all at once. Add the ones
+There are 75 photo spots. You do not need to fill them all at once. Add the ones
 you have, and the rest stay as labeled placeholders until you do.
 
 The little **browser-tab icon (favicon)** is `tab.png` — put it in `assets/img`
@@ -123,7 +123,6 @@ Members:
 - Grey Zittman ........ `greyz.jpg`
 - Alexandra Dell ...... `alexandra.jpg`
 - James Yang .......... `james.jpg`
-- Stefan Goldberg ..... `stefan.jpg`
 - Henry Amberg ........ `henry.jpg`
 - Sam Weinstein ....... `sam.jpg`
 - Joao Pedro de Brito . `pedro.jpg`
