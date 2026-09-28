@@ -44,7 +44,7 @@ can open up the extra slots.
 
 ## The full list of photo names
 
-There are 75 photo spots. You do not need to fill them all at once. Add the ones
+There are 83 photo spots. You do not need to fill them all at once. Add the ones
 you have, and the rest stay as labeled placeholders until you do.
 
 The little **browser-tab icon (favicon)** is `tab.png` — put it in `assets/img`
@@ -128,6 +128,14 @@ Members:
 - Joao Pedro de Brito . `pedro.jpg`
 - Lucas Goldberg ...... `lucas.jpg`
 - Lukas Grimminger .... `lukas.jpg`
+- Morgan Donnelly ..... `morgan.png`
+- Zidan Ahmad ......... `zidan.png`
+- Miles McGowan ....... `milesm.png` (not miles.jpg — that's Miles Devine)
+- Ayo Smith ........... `ayo.png`
+- Sahara Maazel ....... `sahara.png`
+- Mar Iborra Gil ...... `mar.png`
+- Desmond Chemweno .... `desmond.png`
+- Julien Geula ........ `julien.png`
 
 ## Adding a new event or person later
 
