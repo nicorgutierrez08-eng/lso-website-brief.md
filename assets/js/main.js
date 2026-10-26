@@ -159,9 +159,8 @@
       "Community Outreach Coordinator": "Coordinador de Alcance Comunitario",
       "Director of Partnerships": "Director de Alianzas",
       "Assistant Director and Event Coordinator": "Subdirector y Coordinador de Eventos",
-      "Assistant Head of Volunteer Programs": "Subdirector de Programas de Voluntariado",
       "Treasurer": "Tesorero",
-      "Head of Volunteer Programs": "Director de Programas de Voluntariado"
+      "Co-Head of Volunteer Programs": "Codirector de Programas de Voluntariado"
     },
     zh: {
       "Home": "首页",
@@ -258,9 +257,8 @@
       "Community Outreach Coordinator": "社区外联协调员",
       "Director of Partnerships": "合作负责人",
       "Assistant Director and Event Coordinator": "副主管兼活动协调员",
-      "Assistant Head of Volunteer Programs": "志愿项目副负责人",
       "Treasurer": "财务主管",
-      "Head of Volunteer Programs": "志愿项目负责人"
+      "Co-Head of Volunteer Programs": "志愿项目联合负责人"
     }
   };
   var I18N_HTMLLANG = { en: "en", es: "es", zh: "zh" };
